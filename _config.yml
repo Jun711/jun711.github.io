@@ -94,7 +94,7 @@ analytics:
 # Site Author
 author:
   name             : *name
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/assets/images/jun711.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "Software developer eager to learn"
   location         : "Vancouver, BC"
   email            : "jun711.g@gmail.com"
