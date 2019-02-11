@@ -96,7 +96,7 @@ analytics:
 author:
   name             : *name
   avatar           : "/assets/images/jun711.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Software developer eager to learn"
+  bio              : "Software engineer eager to learn"
   location         : "Vancouver, BC"
   email            : "jun711.g@gmail.com"
   links:
@@ -279,7 +279,7 @@ defaults:
       author_profile: true
       read_time: true
       toc: true
-      toc_label: 'Steps'
+      toc_label: 'Menu'
       toc_icon: 'paperclip'
       comments: true # true
       share: true
