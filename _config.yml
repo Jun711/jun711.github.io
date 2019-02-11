@@ -278,6 +278,9 @@ defaults:
       layout: single
       author_profile: true
       read_time: true
+      toc: true
+      toc_label: 'Steps'
+      toc_icon: 'paperclip'
       comments: true # true
       share: true
       related: true
