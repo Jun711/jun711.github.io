@@ -1,8 +1,8 @@
 ---
 layout: single
-title:  "How to connect multiple phones to Amazon Echo & Alexa?"
-date:   2018-12-31 18:02:20 -0800
-categories: how-to
+title: "How to connect multiple phones to Amazon Echo & Alexa?"
+date: 2019-02-10 20:00:00 -0800
+categories: How-to
 tags:
   - Echo
   - Alexa
