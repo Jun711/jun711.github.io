@@ -65,3 +65,10 @@ h1:hover {
       transition: transform 0.3s ease-out;   
     } 
 }
+
+pre.code {
+    border: 1px solid #ddd;
+    padding: 6px 5px;
+    font-size: 13px;
+    // margin: 10px;
+}
