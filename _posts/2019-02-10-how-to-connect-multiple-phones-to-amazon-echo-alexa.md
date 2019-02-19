@@ -17,11 +17,11 @@ Note that this is not an Echo and Alexa setup guide. This is also not an explana
 ### Download Amazon Alexa App
 If you haven't download your Alexa phone app, you can go to the respective links below to download Alexa app to begin.
 
-[Alexa Android App](https://play.google.com/store/apps/details?id=com.amazon.dee.app)
+[Alexa Android App](https://play.google.com/store/apps/details?id=com.amazon.dee.app){:target="_blank"}
 
-[Alexa Apple App](https://itunes.apple.com/us/app/amazon-alexa/id944011620)
+[Alexa Apple App](https://itunes.apple.com/us/app/amazon-alexa/id944011620){:target="_blank"}
 
-[Alexa Windows App](https://www.microsoft.com/en-ca/p/alexa/9n12z3cctcnz)
+[Alexa Windows App](https://www.microsoft.com/en-ca/p/alexa/9n12z3cctcnz){:target="_blank"}
 
 ### Steps to connect a phone to Amazon Echo & Alexa
 
