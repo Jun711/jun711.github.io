@@ -6,7 +6,7 @@ categories: How-to
 tags:
   - Jekyll Syntax Highlighting
 header: 
-  teaser: /assets/images/jekyll-homepage.png
+  teaser: /assets/images/jekyll.png
 ---
 To have code snippets highlighted so that they are more reader-friendly, we have wrap our code using the following syntax.
 
