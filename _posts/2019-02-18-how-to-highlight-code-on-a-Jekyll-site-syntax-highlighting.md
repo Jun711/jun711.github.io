@@ -5,7 +5,8 @@ date: 2019-02-19 20:00:00 -0800
 categories: How-to
 tags:
   - Jekyll Syntax Highlighting
-  -
+header: 
+  teaser: 'jekyll-homepage.png'
 ---
 To have code snippets highlighted so that they are more reader-friendly, we have wrap our code using the following syntax.
 
