@@ -128,4 +128,4 @@ def get_from_ddb(key):
 
 With this, you can have your DynamoDB tables remove irrelevant entries automatically.
 
-Thank you for reading!
+{% include eof.md %}

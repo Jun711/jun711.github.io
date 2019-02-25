@@ -36,4 +36,4 @@ If you haven't download your Alexa phone app, you can go to the respective links
 
 After you connect your phone to Echo, you can start playing music from your phone, for example.
 
-Thank you for reading!
+{% include eof.md %}
