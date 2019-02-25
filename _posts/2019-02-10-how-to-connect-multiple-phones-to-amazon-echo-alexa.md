@@ -1,5 +1,7 @@
 ---
 layout: single
+header:
+  teaser: /assets/images/amazon-echo-alexa.png
 title: "How to connect multiple phones to Amazon Echo & Alexa?"
 date: 2019-02-10 20:00:00 -0800
 categories: How-to
