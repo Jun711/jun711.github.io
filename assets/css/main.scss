@@ -72,3 +72,36 @@ pre.code {
     font-size: 13px;
     // margin: 10px;
 }
+
+#scroll-up {
+    display: block;
+    position: fixed;
+    font-size: 24px;
+    bottom: 25px;
+    right: 15%;
+    opacity: 1;
+    z-index: 99;
+    text-align: center;
+    
+    :last-child {
+      transition: transform 0.7s ease-in-out;
+      
+      &:active, &:hover {
+         transform: translateY(-10%);
+      }
+    }
+    transform: translateY(30%);
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+
+#scroll-up span {
+    cursor: pointer;
+    color: #1a1d24;
+
+    &:hover, &:active {
+        .up-arrow {
+            color: #00adb5;
+        }
+    }
+}
