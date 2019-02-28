@@ -2,7 +2,7 @@
 layout: single
 title: "How to highlight code on a Jekyll site - Syntax Highlighting"
 date: 2019-02-19 20:00:00 -0800
-categories: How-to
+categories: Jekyll
 tags:
   - Jekyll Syntax Highlighting
 header: 
