@@ -1,4 +1,4 @@
-theme: minimal-mistakes-jekyll
+# theme: minimal-mistakes-jekyll
 remote_theme: "mmistakes/minimal-mistakes"
 minimal_mistakes_skin    : "dark" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
@@ -198,6 +198,9 @@ kramdown:
   smart_quotes: lsquo,rsquo,ldquo,rdquo
   enable_coderay: false
 
+# JavaScript
+head_scripts:
+  - /assets/js/scroll-to-top.js
 
 # Sass/SCSS
 sass:
