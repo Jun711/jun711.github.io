@@ -24,13 +24,13 @@
     }
 }
 
-section > h3 {
+section > h3, section > h4 {
     cursor: default;
     position: relative;
     display: inline-block;
 }
 
-section > h3:after {
+section > h3:after, section > h4:after {
     position: absolute;
     content: '';
     height: 1px;
@@ -73,7 +73,7 @@ pre.code {
     // margin: 10px;
 }
 
-#scroll-up {
+#scroll-to-top {
     display: block;
     position: fixed;
     font-size: 24px;
@@ -95,7 +95,7 @@ pre.code {
 }
 
 
-#scroll-up span {
+#scroll-to-top span {
     cursor: pointer;
     color: #1a1d24;
 
