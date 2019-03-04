@@ -76,9 +76,16 @@ pre.code {
 #scroll-to-top {
     display: block;
     position: fixed;
-    font-size: 24px;
+    font-size: 21px;
+    @media (max-width: 600px) {
+        font-size: 20px;
+    }
     bottom: 25px;
-    right: 15%;
+    right: 10%;
+    @media (max-width: 600px) {
+        right: 5%;
+    }
+    
     opacity: 0;
     z-index: 99;
     text-align: center;
