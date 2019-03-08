@@ -12,7 +12,7 @@ tags:
 
 ## Amazon Echo & Alexa 
 ### Info
-This is to clarify the steps to connect multiple phones via bluetooh to an Amazon Echo & Alexa.
+This is to clarify the steps to connect multiple phones via bluetooh to an [Amazon Echo & Alexa](https://amzn.to/2VJmF4O){:target="_blank"}.
 
 Note that this is not an Echo and Alexa setup guide. This is also not an explanation about connecting another user to your amazon household account.
 
