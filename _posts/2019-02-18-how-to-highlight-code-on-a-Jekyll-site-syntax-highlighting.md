@@ -8,7 +8,7 @@ tags:
 header: 
   teaser: /assets/images/jekyll.png
 ---
-To have code snippets highlighted so that they are more reader-friendly, we have wrap our code using the following syntax.
+To have code snippets highlighted so that they are more reader-friendly, we have to wrap our code using the following syntax.
 
 ## 1 Jekyll Rouge Highlight Tag
 You can install kramdown markdown parser and [rouge highlighter](http://rouge.jneen.net/){:target="_blank"} - Jekyll's default highlighter using the following command:
