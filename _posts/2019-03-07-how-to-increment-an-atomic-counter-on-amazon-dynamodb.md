@@ -32,9 +32,9 @@ According to Wikipedia:
 
 Atomic counter is based on one of database ACID transaction property - atomicity. This is so that each request to update a DDB item is not interfered by other write requests. You can see a DDB atomic counter request as plus or minus operation. You can follow this example to get an idea. 
 
-1. Usage record in DDB for user A is 5 units
-2. User A sends 3 consecutive requests: +7 units, +4 units and +10 units respectively
-3. Instead of 3 Lambda instances add usage units to 5 and write back to DDB, they should send in 3 write requests to DDB with the amount to increase
+1. Usage record in DDB for user A is 5 units.
+2. User A sends 3 consecutive requests: +7 units, +4 units and +10 units respectively.
+3. Instead of 3 Lambda instances add usage units to 5 and write back to DDB, they should send in 3 write requests to DDB with the amount to increase.
 
 ### Boto 3 - Python
 Using a dynamodb client, I can increment an atomic counter in DDB using update_item method with UpdateExpression property. A [DDB Update Expressions](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.UpdateExpressions.html){:target="_blank"}'s usage is to indicate how we want to modify an item's attribute value.
