@@ -22,12 +22,12 @@ There are multiple ways to get your local IP address such as via Network Prefere
 
 #### Windows 10
 you can follow these steps to get your local address(> means next step):  
-Click Start icon >   
-Choose Settings >   
-Select Network & Internet >   
-Select Ethernet or WiFi on the left panel >  
-Select network connection (Ethernet) or Advanced Options(WiFi) >  
-The IP address next to IPv4 Address is your local IP address
+i) Click Start icon >   
+ii) Choose Settings >   
+iii) Select Network & Internet >   
+iv) Select Ethernet or WiFi on the left panel >  
+v) Select network connection (Ethernet) or Advanced Options(WiFi) >  
+vi) The IP address next to IPv4 Address is your local IP address
 
 The steps are different if you have a different Windows OS. 
 
