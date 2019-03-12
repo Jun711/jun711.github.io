@@ -9,14 +9,12 @@ tags:
   - Amazon Echo
   - Alexa
 ---
-
-## Amazon Echo & Alexa 
-### Info
+## Overview:
 This is to clarify the steps to connect multiple phones via bluetooh to an [Amazon Echo & Alexa](https://amzn.to/2VJmF4O){:target="_blank"}.
 
 Note that this is not an Echo and Alexa setup guide. This is also not an explanation about connecting another user to your amazon household account.
 
-### Download Amazon Alexa App
+## Download Amazon Alexa App
 If you haven't download your Alexa phone app, you can go to the respective links below to download Alexa app to begin.
 
 [Alexa Android App](https://play.google.com/store/apps/details?id=com.amazon.dee.app){:target="_blank"}
@@ -25,7 +23,7 @@ If you haven't download your Alexa phone app, you can go to the respective links
 
 [Alexa Windows App](https://www.microsoft.com/en-ca/p/alexa/9n12z3cctcnz){:target="_blank"}
 
-### Steps to connect a phone to Amazon Echo & Alexa
+## Steps to connect a phone to Amazon Echo & Alexa
 
 | Screenshots of Alexa App | Steps | 
 |---|:---|
