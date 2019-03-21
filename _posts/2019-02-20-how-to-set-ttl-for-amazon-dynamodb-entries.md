@@ -64,8 +64,9 @@ import boto3
 
 def write_to_ddb(key, data):
   dynamodbClient = boto3.client('dynamodb')
-  oneWeek = datetime.datetime.today() + datetime.timedelta(days=7)
-  expiryDateTime = int(time.mktime(oneWeek.timetuple()))
+  week = datetime.datetime.today() + \
+    datetime.timedelta(days=7)
+  expiryDateTime = int(time.mktime(week.timetuple()))
   try:
       dynamodbClient.put_item(
           TableName = os.environ['DEMO_TABLE'],

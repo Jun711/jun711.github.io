@@ -116,3 +116,16 @@ pre.code {
 .highlighter-rouge {
     background: gray;
 }
+
+@media all and (max-width: 360px) {
+    div.highlighter-rouge {
+        font-size: .4em;
+    }
+}
+
+@media all and (max-width: 460px) {
+    div.highlighter-rouge {
+        font-size: .5em;
+    }
+}
+
