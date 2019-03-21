@@ -1,7 +1,7 @@
 ---
 layout: single
 header: 
-  teaser: /assets/images/nework-2019-03-20.jpeg
+  teaser: /assets/images/network-2019-03-16.jpg
 title: "How to observe the impact of a network request on your website?"
 date: 2019-03-16 20:00:00 -0800
 categories: ['Web']
