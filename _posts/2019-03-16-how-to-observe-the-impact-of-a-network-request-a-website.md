@@ -2,7 +2,7 @@
 layout: single
 header: 
   teaser: /assets/images/network-2019-03-16.jpg
-title: "How to observe the impact of a network request on your website?"
+title: "How to observe the impact of a network request on a website?"
 date: 2019-03-16 20:00:00 -0800
 categories: ['Web']
 tags: ['Debug', 'Test']
