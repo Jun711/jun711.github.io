@@ -29,7 +29,6 @@ Keyboard Shortcut:
 | Open Console tab | Command + Option + J | Control + Shift + J |
 | Open the last used DevTools tab| Command + Option + I | Control + Shift + I |
 
-
 ### 3. Navigate to Network Tab
 You will see something similar like the image below:  
 
@@ -61,7 +60,6 @@ Similar to step 4, refresh your page. However, this time, this blocked request w
 The blocked request(s) will have red font and status as `(blocked:devtools)`.
 
 ![Google Chrome DevTools Request Blocked](/assets/images/chrome-devtools-request-blocked-2019-03-19.png)
-
 
 With this, you can monitor how your web application behaves with and without a network request. 
 
