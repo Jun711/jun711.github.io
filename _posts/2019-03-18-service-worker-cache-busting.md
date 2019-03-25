@@ -10,7 +10,7 @@ tags:
   - PWA
 ---
 ## Overview:
-Learn how to deploy the latest version of your progressive web app.
+Learn how to publish the latest version of your progressive web app.
 
 Ever deploy a progressive web app(PWA) but found that it is still serving the old version? And, you might have to update service worker and / or clear cache manually to see the latest version of your website. 
 
