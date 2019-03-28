@@ -21,8 +21,12 @@ sed is defined as following on [GNU](https://www.gnu.org/software/sed/manual/sed
 You can run the following command to remove console methods from your input JavaScript file: `in.js` and the output JavaScript file would be `out.js`.
 
 ```
-sed -e 's/console.(log|debug)\((.*)\);?//g' <in.js >out.js
+sed -E 's/console.(log|debug)\((.*)\);?//g' <in.js >out.js
 ```
+
+Description of -E flag from `man sed` 
+>  Interpret regular expressions as extended (modern) regular expressions rather than basic regular expressions (BRE's). The re_format(7) manual page fully describes both formats.
+
 You can edit this list: `log|debug` to remove the console method you want to remove. For example,if you want to remove console log, debug, info and count, change that list to `log|debug|info|count`.
 
 You can use this [regex test website](https://regex101.com/r/kC7rXR/3){:target="_blank"} to check if it works.
