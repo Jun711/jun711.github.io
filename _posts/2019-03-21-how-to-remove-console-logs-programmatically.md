@@ -2,7 +2,7 @@
 layout: single
 header:
   teaser: /assets/images/javascript-2019-03-21.png
-title: "How to remove console log from your JavaScript files?"
+title: "How to remove console log from your JavaScript files programmatically?"
 date: 2019-03-21 12:00:00 -0800
 categories: Web
 tags:
