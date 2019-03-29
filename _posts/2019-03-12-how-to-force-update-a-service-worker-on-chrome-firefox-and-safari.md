@@ -67,7 +67,7 @@ On Safari, as of version 12.1, you need to remove your website's service worker 
 1. Click Safari button on top left corner.
 2. Open up Safari preferences. 
 3. Select Privacy tab. 
-4. Click Manage Website Data
+4. Click Manage Website Data.
 
 Please refer to the following image for the above listed steps.
 ![Safari Privacy Manage Website Data](/assets/images/safari-open-up-privacy-menu-2019-03-12.png)
