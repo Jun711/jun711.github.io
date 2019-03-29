@@ -1,7 +1,7 @@
 ---
 layout: single
 header:
-  teaser: /assets/images/2019-01-03-how-to-inspect-network-request-and-response-headers-on-safari/safari-logo-2018-11-11.jp2
+  teaser: /assets/images/2019-01-03-how-to-inspect-network-request-and-response-headers-on-safari/safari-logo-2018-11-11.png
 title: "How to inspect request and response headers on Safari?"
 date: 2019-01-03 12:00:00 -0800
 categories: Web
