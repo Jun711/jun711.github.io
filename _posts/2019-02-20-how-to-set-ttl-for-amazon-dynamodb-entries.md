@@ -11,12 +11,14 @@ tags:
 ---
 
 ## Overview: 
+Learn how to make Amazon DynamoDB(DDB) tables clean up itself.
+
 You can make Amazon DynamoDB table entries expire automatically by setting a time-to-live timestamp attribute. This timestamp is in [Unix Epoch time](https://en.wikipedia.org/wiki/Unix_time){:target="_blank"} format which is number of seconds that have elapsed since 1 January 1970 00:00:00. Your DDB entries will be scheduled to be deleted if current Unix Epoch time is greater than its time-to-live value.
 
 In case you wonder what epoch means, the [definition of Epoch on Google Dictionary](https://www.google.com/search?site=async/dictw&q=Dictionary#dobs=epoch){:target="_blank"} is `a period of time in history or a person's life, typically one marked by notable events or particular characteristics.` 
 
 ## Possible use cases 
-1. Keep only relatively new data for debugging.
+1. Keep only relatively new data for debugging or analytics.
 2. Expire users' periodic usage data so that usage quota can be reset at a specific time.
 3. Keep data temporary for pattern searching and usage tracking.
 
@@ -41,11 +43,11 @@ update-time-to-live
 ```
 
 ### 2 AWS DynamoDB Console
-1. Open up your AWS console and navigate to DynamoDB
+1. Open up your AWS console and navigate to DynamoDB.
 
-2. Select a table that you want to set up time-to-live
+2. Select a table that you want to set up time-to-live.
 
-3. In the table details, there is a Time to live attribute item. Click Manage TTL button next to it.
+3. In the table details, there is a 'Time to live attribute' item. Click Manage TTL button next to it.
 
 ![AWS DyanamoDB Table Details Screenshot](/assets/images/aws-ddb-table-details-time-to-live-attribute-2019-02-12.png)
 
