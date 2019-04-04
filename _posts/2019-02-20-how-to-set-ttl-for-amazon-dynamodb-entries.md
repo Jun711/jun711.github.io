@@ -91,7 +91,7 @@ def write_to_ddb(key, data):
 ```
 
 ### Read from DDB
-Be cautious that DynamoDB does not delete expired items immediately. On Aws DynamoDB update-time-to-live command document, it states that expired items are removed within 2 days of expiration. And, these supposedly expired items will stil show up in read, query and scan operations.
+Be cautious that DynamoDB does not delete expired items immediately. On Aws DynamoDB update-time-to-live command document, it states that expired items are removed within 2 days of expiration. And, these supposedly expired items will still show up in read, query and scan operations.
 
 You need to have `FilterExpression = '#t > :ttl'` to make sure the retrieved entries aren't expired.
 
