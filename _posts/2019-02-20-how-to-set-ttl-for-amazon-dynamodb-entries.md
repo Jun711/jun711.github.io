@@ -26,7 +26,7 @@ In case you wonder what epoch means, the [definition of Epoch on Google Dictiona
 You need to configure your DDB tables to set up time-to-live attribute using AWS CLI or AWS DynamoDB Console.
 
 ### 1 AWS CLI 
-You can use AWS DynamoDB [update-time-to-live command](https://docs.aws.amazon.com/cli/latest/reference/dynamodb/update-time-to-live.html#){:target="_blank"}. The following is the command synopsis.
+You can use AWS DynamoDB CLI [update-time-to-live command](https://docs.aws.amazon.com/cli/latest/reference/dynamodb/update-time-to-live.html#){:target="_blank"}. The following is the command synopsis.
 
 ```
 update-time-to-live
@@ -37,7 +37,7 @@ update-time-to-live
 ```
 #### Example
 ```
-update-time-to-live
+aws dynamodb update-time-to-live
 --table-name demoTable
 --time-to-live-specification Enabled=true,AttributeName=ttl
 ```
@@ -91,7 +91,7 @@ def write_to_ddb(key, data):
 ```
 
 ### Read from DDB
-Be cautious that DynamoDB does not delete expired items immediately. On Aws DynamoDB update-time-to-live command document, it states that expired items are removed within 2 days of expiration. And, these supposedly expired items will still show up in read, query and scan operations.
+Be cautious that DynamoDB does not delete expired items immediately. On Aws DynamoDB update-time-to-live command document, it states that expired items are removed within **2 days or 48 hours from expiration time**. And, these supposedly expired items will still show up in read, query and scan operations.
 
 You need to have `FilterExpression = '#t > :ttl'` to make sure the retrieved entries aren't expired.
 
