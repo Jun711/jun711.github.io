@@ -13,7 +13,7 @@ tags:
   - AWS IAM
 ---
 ## Overview:
-Learn how to set up control access to your AWS API Gateway with IAM permissions, Amazon Cognito User Pools or Lambda Authorizer (previously named Custom Authorizer). 
+Learn how to set up control access to your AWS API Gateway endpoints with IAM permissions, Amazon Cognito User Pools or Lambda Authorizer (previously named Custom Authorizer). 
 
 ## Amazon Cognito User Pools
 ### AWS API Gateway Console
