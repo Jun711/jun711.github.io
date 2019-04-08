@@ -1,7 +1,7 @@
 ---
 layout: single
 header:
-  teaser: /assets/images/2019-03-14-how-to-listen-for-upload-progress-in-service-worker-and-progressive-web-app/client-server-interaction-ajax-xhr-fetch-2019-03-13.jpg
+  teaser: /assets/images/2019-03-14-how-to-listen-for-upload-progress-in-service-worker-and-progressive-web-app/client-server-interaction-ajax-xhr-fetch-2019-03-14.jpg
 title: "How to listen for upload progress in a service worker scope - progressive web app(PWA)?"
 date: 2019-03-14 12:00:00 -0800
 categories: Web
