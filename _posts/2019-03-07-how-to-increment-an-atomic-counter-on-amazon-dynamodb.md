@@ -14,7 +14,7 @@ tags:
 If you use Amazon DynamoDB to keep track of usage count, you may encounter a situation where you need to increase a user's usage count when the user is actively using your service, how do you make sure you calculate the total usage correctly? How do you make sure you don't count more or less? 
 
 ## Serverless Setup
-My backend setup is AWS Api Gateway, Lambda and DynamoDB. Users connect to my Lambda service via Api Gateway. Inside the lambda, besides serving requests, it also records how many units of the service is being used.  
+My backend setup is AWS API Gateway, Lambda and DynamoDB. Users connect to my Lambda service via API Gateway. Inside the lambda, besides serving requests, it also records how many units of the service is being used.  
 
 However, when multiple requests from the user come in simultaneously (or in a high frequency), multiple Lambda instances will be spawned to handle the requests. Thus, it would result in calculation error if service record is done in these steps: 
 1. Read usage data for a user from DDB
