@@ -18,6 +18,8 @@ Learn how to use AWS Amplify to sign your API Gateway requests with Signature Ve
 
 It is important to secure your API Gateway endpoints. One of the ways is to use AWS IAM roles (AWS_IAM). If there is no authorization to your API Gateway endpoints, your API endpoints could be misused / attacked easily via a script or using curl etc. 
 
+Note that using AWS Amplify to sign a request doesn't require you to specify your scret access key on front end which is definitely safer than using a library that requires one.
+
 ## Possible Issues
 Without securing my endpoints, these were the issues that I encountered when I started learning building APIs.
 
