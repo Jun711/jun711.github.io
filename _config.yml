@@ -98,10 +98,10 @@ author:
   avatar           : "/assets/images/jun711.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "Software engineer eager to learn"
   location         : "Vancouver, BC"
-  email            : "jun711.g@gmail.com"
+  email            : # "jun711.g@gmail.com"
   links:
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
+    # - label: "Email"
+    #   icon: "fas fa-fw fa-envelope-square"
       # url: mailto:your.name@email.com
     - label: "Website"
       icon: "fas fa-fw fa-link"
@@ -114,10 +114,10 @@ author:
       url: &fbUrl "https://www.facebook.com/jun711.g/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: &githubUrl "https://github.com/Jun711"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      # url: "https://instagram.com/"
+      url: # &githubUrl "https://github.com/Jun711"
+    - label: "Support Jun"
+      icon: "fas fa-mug-hot"
+      url: "buymeacoff.ee/jun711"
 
 # Site Footer
 footer:
