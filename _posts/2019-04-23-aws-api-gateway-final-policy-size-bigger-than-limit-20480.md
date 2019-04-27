@@ -17,7 +17,7 @@ Learn how to deal with AWS API Gateway "Final policy size bigger than limit(2048
 ## Issue
 API Gateway endpoint can't invoke lambda with 5XX permission error.
 
-When testing on API Gateway console, you see this error message:
+When testing on API Gateway console, I saw this error message:
 ```
 Execution log for request d237e276-656e-11e9-aaff-51e803313fb3
 ... truncated
@@ -26,22 +26,22 @@ Date : Execution failed due to configuration error:
   Invalid permissions on Lambda function
 Date : Method completed with status: 500
 ```
-However, when you try to add permission using AWS SAM yaml file or manually on console, you get "Final policy size bigger than limit(20480)" error on Cloud Formation
+However, when I tried to add permission using AWS SAM yaml file or manually on console, I got "Final policy size bigger than limit(20480)" error on Cloud Formation.
 
 ![AWS Cloud Formation fails to create lambda resource-based policy permission](/assets/images/2019-04-23-aws-api-gateway-final-policy-size-bigger-than-limit-20480/api-gateway-cloudformation-create-permission-fail-2019-04-23.png)
 
 ![AWS API Gateway fails to add resource-based policy to access lambda](/assets/images/2019-04-23-aws-api-gateway-final-policy-size-bigger-than-limit-20480/api-gateway-invoke-lambda-permission-final-policy-size-bigger-than-the-limit-2019-04-23.png)
 
 ## Expected Behavior
-We expect to be able to provide API Gateway permissions to invoke AWS Lambda functions using a yaml file or manually on console.
+I expect to be able to provide API Gateway permissions to invoke AWS Lambda functions using a yaml file or manually on console.
 
 ## Reason 
-The reason is that there are duplicate [resource-based policies](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html){:target="_blank"} attached to your lambda function(s). 
+The reason is that there are duplicate [resource-based policies](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html){:target="_blank"} attached to my lambda function(s). 
 
-Resource-based policies are policies attached with your lambda function(s) to allow other AWS service or other accounts to use your lambda function(s).
+Resource-based policies are policies attached with lambda function(s) to allow other AWS service or other accounts to use the lambda function(s).
 
 ## Solution
-Thus, you have to detach these extra policies. You can delete your lambda function(s) and republish them if you are at the beginning stage of development. However, if your lambda function(s) is already in production, that is not recommended as it will probably affect the availability of your service.  
+The solution is you have to detach these extra policies. You can delete your lambda function(s) and republish them if you are at the beginning stage of development. However, if your lambda function(s) is already in production, that is not recommended as it will probably affect the availability of your service.  
 
 Instead, you can use AWS lambda API to clean up policies of your lambda function(s).
 
