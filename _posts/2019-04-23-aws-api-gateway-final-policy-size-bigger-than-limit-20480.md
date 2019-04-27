@@ -26,8 +26,11 @@ Date : Execution failed due to configuration error:
   Invalid permissions on Lambda function
 Date : Method completed with status: 500
 ```
+However, when you try to add permission using AWS SAM yaml file or manually on console, you get "Final policy size bigger than limit(20480)" error on Cloud Formation
 
-However, when you try to add permission using AWS SAM yaml file or manually on console, you get "Final policy size bigger than limit(20480)" error.
+![AWS Cloud Formation fails to create lambda resource-based policy permission](/assets/images/2019-04-23-aws-api-gateway-final-policy-size-bigger-than-limit-20480/api-gateway-cloudformation-create-permission-fail-2019-04-23.png)
+
+![AWS API Gateway fails to add resource-based policy to access lambda](/assets/images/2019-04-23-aws-api-gateway-final-policy-size-bigger-than-limit-20480/api-gateway-invoke-lambda-permission-final-policy-size-bigger-than-the-limit-2019-04-23.png)
 
 ## Expected Behavior
 We expect to be able to provide API Gateway permissions to invoke AWS Lambda functions using a yaml file or manually on console.
