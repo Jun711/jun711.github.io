@@ -50,7 +50,8 @@ update-expression ::=
 
 #### Example code
 ```python
-dynamodbClient = boto3.client('dynamodb', region_name='us-east-1')
+dynamodbClient = boto3.client('dynamodb', 
+                    region_name='us-east-1')
 
 res = dynamodbClient.update_item(
         TableName = os.environ['DEMO_TABLE'],
@@ -63,17 +64,20 @@ res = dynamodbClient.update_item(
             '#u': 'usage'
         },
         ExpressionAttributeValues = {
-            ':usageUnit': {
+            ':increase': {
                 'N': usage,
             },
         },
-        UpdateExpression = 'SET #usage = #usage + :usageUnit',
+        UpdateExpression = 'SET #usage = #usage + :increase',
+        # UpdateExpression = 'ADD #usage :increase', 
         ReturnValues = 'UPDATED_NEW'
       )
 ```
 What the above code meas is it updates usage attribute of an item by adding usage to its current usage value.
 
 You can read Boto 3 [update_item API](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dynamodb.html#DynamoDB.Client.update_item){:target="_blank"} API document for more information. 
+
+You can use either `SET #usage = #usage + :increase` or `ADD #usage :increase`.
 
 With this, you can increase a counter atomically.
 
