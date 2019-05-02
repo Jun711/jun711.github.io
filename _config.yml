@@ -120,7 +120,7 @@ author:
       url: # &githubUrl "https://github.com/Jun711"
     - label: "Support Jun"
       icon: "fas fa-mug-hot"
-      url: "buymeacoff.ee/jun711"
+      url: &coffeeUrl "buymeacoff.ee/jun711"
 
 # Site Footer
 footer:
@@ -131,9 +131,15 @@ footer:
     - label: "Facebook"
       icon: "fab fa-fw fa-facebook-square"
       url: *fbUrl
+    - label: "Medium"
+      icon: "fab fa-fw fa-medium"
+      url: *mediumUrl
+    - label: "Support Jun"
+      icon: "fas fa-mug-hot"
+      url: *coffeeUrl
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: *githubUrl
+      # url: *githubUrl
     - label: "GitLab"
       icon: "fab fa-fw fa-gitlab"
       # url:
