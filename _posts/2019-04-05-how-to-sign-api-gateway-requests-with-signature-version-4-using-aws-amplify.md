@@ -97,7 +97,7 @@ f536975d06c0309214f805bb90ccff089219ecd68b2577efef23edd43b7e1a59</code></pre>
 
 ### 3) Calculate Signature
 1. Derive a signing key from your AWS secret access key, date(YYYYMMDD), region, service. 
-Pseudocode for deriving a signing key: 
+This is the pseudocode for deriving a signing key: 
 <pre class='code'>
 <code>kSecret = your secret access key
 kDate = HMAC("AWS4" + kSecret, Date)
@@ -108,7 +108,7 @@ HMAC stands for hash-based message authentication code.
 
 {:start="2"}
 2. Use derived signing key and the string to sign to create the signature. 
-Pseudocode to calculate the signature
+This is the pseudocode to calculate the signature:
 <pre class='code'>
 <code>signature = HexEncode(HMAC(derived signing key, string to sign))</code></pre>
 
@@ -143,29 +143,10 @@ host: f1pj1.execute-api.us-east-1.amazonaws.com
 x-amz-date: 20190321T123600Z</code></pre>
 
 ## Good to Know
-You can read this [AWS document](https://docs.aws.amazon.com/general/latest/gr/sigv4_changes.html){:target="_blank"} about difference between Signature Version 2 and Version 4 
+You can read this [AWS document](https://docs.aws.amazon.com/general/latest/gr/sigv4_changes.html){:target="_blank"} about difference between Signature Version 2 and Version 4.
 
 ## Code
 There are many ways to sign an API Gateway request. For example, you can use aws4, aws-signature-v4, AWS Amplify etc for the signing process. This article is mainly going to talk about how to use AWS Amplify to sign a request.
-
-```javascript
-Amplify.configure({
-  Auth: {
-    identityPoolId: 'identityPoolId',
-    region: 'us-west-1',
-    userPoolId: 'userPoolId',
-    userPoolWebClientId: 'userPoolWebClientId'
-  },
-  API: {
-    endpoints: [
-      {
-        name: 'Compute',
-        endpoint: 'https://7t9wl31rh7.execute-api.us-west-1.amazonaws.com/Prod',
-      }
-    ]
-  }
-})
-```
 
 ### API Class + Axios
 When you use AWS Amplify, you can use API Class directly to send requests and all these requests are automatically signed using AWS Signature Version 4.
@@ -196,7 +177,7 @@ Amplify.configure({
 
 #### Get request example
 ```javascript
-public compute(user) {
+function compute(user) {
   const apiName = 'Compute';
   const path = '/computer-one';
   const config = {
@@ -224,7 +205,7 @@ public compute(user) {
 
 #### Post Request Example
 ```javascript
-public compute(user) {
+function compute(user) {
   const apiName = 'Compute';
   const path = '/computer-one';
   const config = {
@@ -259,7 +240,7 @@ This is a screenshot of cropped request headers.
 ### Signer Class + Fetch / XHR 
 On the other hand, if you prefer to use Fetch or XHR, you can also `import Signer from from @amplify/core` and use it to sign your request directly. 
 
-Note that part of the code is adopted from AWS Amplify library.
+The following is the function to sign requests. Note that part of the code is adopted from AWS Amplify library. 
 ```javascript
 import Auth from '@aws-amplify/auth';
 import { Signer } from '@aws-amplify/core';
@@ -267,17 +248,18 @@ import * as urlLib from 'url';
 
 url = 'yourApiGatewayEndpoint';
 // sign a request using Amplify Auth and Signer
-private signRequest(url, data) {
-  // the following code is adopted from 
-  // AWS Amplify Rest Client
-  const { search, ...parsedUrl } = 
-    urlLib.parse(url, true, true);
-
-  let formattedUrl = urlLib.format({
+function signRequest(url, data) {
+  // the urlLib code is adopted from Amplify Rest Client
+  const { search, ...parsedUrl } = urlLib.parse(url, true, true);
+  let formattedUrl = urlLib.format({ 
     ...parsedUrl,
-    query: {
-      ...parsedUrl.query}
+    query: { ...parsedUrl.query }
   });
+
+  // set your AWS region and service here
+  const serviceInfo = {
+    region: 'us-east-1', service: 'execute-api'
+  }
 
   return Auth.currentCredentials()
     .then(credentials => {
@@ -287,10 +269,7 @@ private signRequest(url, data) {
     })
     .then(essentialCredentials => {
       let params = {
-        headers: {
-          'Content-Type': 'application/json; charset=UTF-8'
-          // and other headers
-        },
+        headers: { /* request headers */ },
         data: JSON.stringify({
           'd': data
         }),
@@ -298,7 +277,7 @@ private signRequest(url, data) {
         url: formattedUrl
       }
 
-      // cred object keys should stay the same so that 
+      // cred object keys must stay the same so that 
       // Signer.sign function can access the keys
       let cred = {
         secret_key: essentialCredentials.secretAccessKey,
@@ -306,20 +285,17 @@ private signRequest(url, data) {
         session_token: essentialCredentials.sessionToken
       }
 
-      // set your region and service here
-      let serviceInfo = {
-        region: 'us-east-1', service: 'execute-api'
-      }
-
-      // Signer.sign takes care of 
-      // all other steps of Signature Version 4
+      // Signer.sign takes care of all other steps of Signature V4
       let signedReq = Signer.sign(params, cred, serviceInfo);
 
       return Promise.resolve(signedReq);
     });
 }
+```
 
-private compute = (input, data) => {
+The following is a function that uses the above signing function to sign a request and use Fetch to send the requests.
+```javascript
+function compute = (input, data) => {
   // append query paramaters and values here.
   let url = `${this.url}?param1=${input}`;
 
