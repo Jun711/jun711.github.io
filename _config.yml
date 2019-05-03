@@ -120,7 +120,7 @@ author:
       url: # &githubUrl "https://github.com/Jun711"
     - label: "Support Jun"
       icon: "fas fa-mug-hot"
-      url: &coffeeUrl "buymeacoff.ee/jun711"
+      url: &coffeeUrl "https://www.buymeacoffee.com/jun711"
 
 # Site Footer
 footer:
