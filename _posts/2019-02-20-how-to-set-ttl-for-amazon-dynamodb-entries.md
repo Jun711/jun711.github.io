@@ -141,7 +141,7 @@ def get_from_ddb(key):
 ```python
 expiryTimestamp = int(time.time() + 24*3600*7)
 ExpressionAttributeValues = {
-  'ttl': {
+    'ttl': {
     'N': str(expiryTimestamp) 
   }
 }
