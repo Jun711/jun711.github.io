@@ -66,9 +66,13 @@ import boto3
 
 def write_to_ddb(key, data):
   dynamodbClient = boto3.client('dynamodb')
-  week = datetime.datetime.today() + \
-    datetime.timedelta(days=7)
-  expiryDateTime = int(time.mktime(week.timetuple()))
+  # expires after one week  
+  expiryTimestamp = int(time.time() + 24*3600*7)
+
+  # OR
+  # week = datetime.datetime.today() + \
+  #  datetime.timedelta(days=7)
+  # expiryTimestamp = int(time.mktime(week.timetuple()))
   try:
       dynamodbClient.put_item(
           TableName = os.environ['DEMO_TABLE'],
@@ -80,7 +84,7 @@ def write_to_ddb(key, data):
                   'S': data
               }
               'ttl': {
-                  'N': str(expiryDateTime) 
+                  'N': str(expiryTimestamp) 
               }
           }
       )
@@ -129,6 +133,18 @@ def get_from_ddb(key):
     except Exception as e:
         print('Exception: ', e)
         return None
+```
+
+## Caveat
+1. Note that your expiry timestamp(number of seconds since Epoch time) should be cast into Integer (no decimals).
+2. The attribute type for ttl should be Number. However, the value in the argument should be a String.
+```python
+expiryTimestamp = int(time.time() + 24*3600*7)
+ExpressionAttributeValues = {
+  'ttl': {
+    'N': str(expiryTimestamp) 
+  }
+}
 ```
 
 With this, you can have your DynamoDB tables remove irrelevant entries automatically.
