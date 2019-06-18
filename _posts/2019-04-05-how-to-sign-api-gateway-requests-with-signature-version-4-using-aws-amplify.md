@@ -37,7 +37,7 @@ There are 4 steps involved in signing AWS requests with Signature Version 4. You
 ### 1) Create a Canonical Request
 Create a string that includes HTTP request information in a standardized (canonical) format.
 
-1. Canonical Request pseudocode
+1. Canonical Request pseudocode:
 <pre class='code'>
 <code>CanonicalRequest =
   HTTPRequestMethod + '\n' +
@@ -48,7 +48,7 @@ Create a string that includes HTTP request information in a standardized (canoni
   HexEncode(Hash(RequestPayload))</code></pre>
 
 {:start="2"}
-2. Example Get Request to API Gateway endpoint. 
+2. Example Get Request to API Gateway endpoint:
 <pre class='code'>
 <code>GET https://f1pj1.execute-api.us-east-1.amazonaws.com/v0/posts?user=x HTTP/1.1
 Host: f1pj1.execute-api.us-east-1.amazonaws.com
@@ -72,14 +72,14 @@ content-type;host;x-amz-date
 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</code></pre>
 
 {:start="4"}
-4. Example hashed Canonical Request string.
+4. Example hashed Canonical Request string:
 <pre class='code'>
 <code>f536975d06c0309214f805bb90ccff089219ecd68b2577efef23edd43b7e1a59</code></pre>
 
 ### 2) Create a String to Sign for Signature Version 4
-The string to sign has meta information about your request and the canonical request that is created in step 1. Consicely, it includes the algorithm, date and time, credential scope, and hashed canonical request.
+The string to sign has meta information about your request and the canonical request that is created in step 1. Concisely, it includes the algorithm, date and time, credential scope, and hashed canonical request.
 
-1. Structure of string to sign
+1. Structure of string to sign:
 <pre class='code'>
 <code>StringToSign =
     Algorithm + \n +
@@ -88,7 +88,7 @@ The string to sign has meta information about your request and the canonical req
     HashedCanonicalRequest</code></pre>
 
 {:start="2"}
-2. Example string to sign 
+2. Example string to sign:
 <pre class='code'>
 <code>AWS4-HMAC-SHA256
 20190321T123600Z
@@ -123,7 +123,7 @@ Following information is quoted from this [AWS Signature V4 document](https://do
 ![Example Api Gateway Request Signed with Signature Version 4](/assets/images/2019-03-23-how-to-sign-api-gateway-requests-with-signature-version-4-using-amplify/aws-api-gateway-request-signed-with-aws-signature-version-4-2019-04-05.png)
 You can see from the above screenshot that Signature is added to the HTTP Request's Authorization Header in the following format: 
 
-1. Pseudocode of the Authorization header.
+1. Pseudocode of the Authorization header:
 <pre class='code'>
 <code>Authorization: algorithm Credential=access key ID/credential scope,<br/>SignedHeaders=SignedHeaders, Signature=signature</code></pre>
 
@@ -146,7 +146,7 @@ x-amz-date: 20190321T123600Z</code></pre>
 You can read this [AWS document](https://docs.aws.amazon.com/general/latest/gr/sigv4_changes.html){:target="_blank"} about difference between Signature Version 2 and Version 4.
 
 ## Code
-There are many ways to sign an API Gateway request. For example, you can use aws4, aws-signature-v4, AWS Amplify etc for the signing process. This article is mainly going to talk about how to use AWS Amplify to sign a request.
+There are several ways to sign an API Gateway request. For example, you can use aws4, aws-signature-v4, AWS Amplify etc for the signing process. This article is mainly going to talk about how to use AWS Amplify to sign a request.
 
 ### API Class + Axios
 When you use AWS Amplify, you can use API Class directly to send requests and all these requests are automatically signed using AWS Signature Version 4.
