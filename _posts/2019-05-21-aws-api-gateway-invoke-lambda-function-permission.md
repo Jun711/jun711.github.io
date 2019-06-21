@@ -63,8 +63,7 @@ Once you click OK on the popup, a resource based policy will be added to Lambda 
 3. Adding permission for API Gateway to invoke Lambda functions manually by clicking doesn't scale well when we have more API endpoints. To minimize operational overhead, I recommend the following 2 methods. 
 
 ### 2. Resource-based Policy
-On the other hand, you can declare a permission entity in your yaml file. By adding a resource-based policy in your yaml file, a resource-based policy will be attached to your lambda function(s). The following is the `AWS::Lambda::Permission` entity that you need to add to your yaml file.
-https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html
+On the other hand, you can declare a permission entity in your yaml file. By adding a resource-based policy in your yaml file, a resource-based policy will be attached to your lambda function(s). The following is the `AWS::Lambda::Permission` entity that you need to add to your yaml file. Read more about [Lambda Permission on AWS document](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html){:target="_blank"}.
 
 Note that if you use resource-based policy, you will have to attach at least one per lambda function. There is still chance that you reach the 20KB limit.
 
