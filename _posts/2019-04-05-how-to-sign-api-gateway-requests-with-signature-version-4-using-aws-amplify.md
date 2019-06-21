@@ -2,7 +2,7 @@
 layout: single
 header:
   teaser: /assets/images/aws-api-gateway-logo-2018-11-11.png
-title: "How to sign AWS Api Gateway Requests with Signature Version 4 using AWS Amplify?"
+title: "How to secure AWS Api Gateway Requests with Signature Version 4 using AWS Amplify?"
 date: 2019-04-05 20:00:00 -0800
 categories: AWS
 tags:
@@ -21,7 +21,7 @@ It is important to secure your API Gateway endpoints. One of the ways is to use 
 Note that using AWS Amplify to sign a request doesn't require you to specify your secret access key on front end which is definitely safer than using a library that requires one.
 
 ## Possible Issues
-Without securing my endpoints, these were the issues that I encountered when I started learning building APIs.
+Without securing my endpoints, these were the issues that I encountered when I started building APIs.
 
 1. Sometimes, service was down because it was overloaded with spikes of bad requests. 
 
@@ -116,7 +116,7 @@ This is the pseudocode to calculate the signature:
 3. For client requests, you may not want to use your secret access key to sign your requests as the key will be accessible to anyone who inspect the source code. Instead, you can use AWS Security Token Service to use temporary security credentials to sign a request.  
 For example, if you use AWS Cognito, you can create two roles: unauthenticated for not-sign-in users and authenticated roles for sign-in users. These roles have 1 hour lifetime by default. You can get more information on [AWS Using IAM Roles document](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html){:target="_blank"}
 
-Following information is quoted from this [AWS Signature V4 document](https://docs.aws.amazon.com/general/latest/gr/sigv4-add-signature-to-request.html){:target="_blank"}
+Following information is quoted from this [AWS Signature V4 document](https://docs.aws.amazon.com/general/latest/gr/sigv4-add-signature-to-request.html){:target="_blank"}.
 > You can use temporary security credentials provided by the AWS Security Token Service (AWS STS) to sign a request. The process is the same as using long-term credentials.
 
 ### 4) Add Signature to HTTP Request
@@ -324,7 +324,7 @@ function compute = (input, data) => {
 ```
 
 ## Summary
-With this, you can secure your AWS API Gateway endpoints with AWS_IAM and sign your AWS API Gateway requests with Signature Version 4.
+With this, you can secure your AWS API Gateway endpoints with AWS_IAM and sign your AWS API Gateway requests with Signature Version 4. Note that it doesn't shield your APIs from all misuse but it makes it harder to misuse.
 
 In addition, you can also use Cognito or Lambda Authorizer (Custom Authorizer) to control access to your API Gateway endpoints. Read how to do it on my [API Gateway Access Control article](https://jun711.github.io/aws/aws-api-gateway-access-control-with-iam-cognito-lambda-custom-authorizer/){:target="_blank"}.
 
