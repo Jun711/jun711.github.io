@@ -40,7 +40,9 @@ Learn how to set up control access to your AWS API Gateway endpoints with IAM pe
 
 ### AWS SAM / Swagger with AWS CloudFormation
 #### AWS SAM API Auth Object
-You can use [AWS SAM API Auth Object](https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api-auth-object){:target="_blank"} to configure your yaml file to use Cognito Authorizer based on the following example. 
+You can use [AWS SAM API Auth Object](https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api-auth-object){:target="_blank"} to configure your yaml file to use Cognito Authorizer based on the following example. You can refer to AWS SAM documentation for more information.  
+Note that for AWS::Serverless::Function, if the referred API has a default authorizer set, you can use Auth item to override the default authorizer by setting Authorizer: 'None'.  
+
 ```yaml
 MyApi:
   Type: AWS::Serverless::Api
@@ -57,6 +59,20 @@ MyApi:
             Header: MyAuthorizationHeader 
             # OPTIONAL
             ValidationExpression: myAuthValidationExp
+MyFunction:
+  Type: AWS::Serverless::Function
+  Properties:
+    FunctionName: MyFunction
+    ...
+    Events:
+      Post:
+        Type: Api
+        Properties:
+          Path: /compute
+          Method: POST
+          RestApiId: !Ref MyApi
+          Auth:
+            Authorizer: MyCognitoAuth
 ```            
 
 #### OpenAPI's Swagger
@@ -141,7 +157,9 @@ For x-amazon-apigateway-integration uri, you can refer to this [AWS SAM example 
 
 ### AWS SAM / Swagger with AWS CloudFormation
 #### AWS SAM API Auth Object
-With [AWS SAM v1.11.0](https://github.com/awslabs/serverless-application-model/releases/tag/v1.11.0){:target="_blank"}, AWS SAM supports IAM Authorizer.
+With [AWS SAM v1.11.0](https://github.com/awslabs/serverless-application-model/releases/tag/v1.11.0){:target="_blank"}, AWS SAM supports IAM Authorizer.  
+You can use [AWS SAM API Auth Object](https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api-auth-object){:target="_blank"} to configure your yaml file to use IAM Authorizer based on the following example.
+Note that for AWS::Serverless::Function, if the referred API has a default authorizer set, you can use Auth item to override the default authorizer by setting Authorizer: 'None'.  
 
 ```yaml
 MyApi:
@@ -150,6 +168,20 @@ MyApi:
     StageName: Prod
     Auth:
       DefaultAuthorizer: AWS_IAM
+MyFunction:
+  Type: AWS::Serverless::Function
+  Properties:
+    FunctionName: MyFunction
+    ...
+    Events:
+      Post:
+        Type: Api
+        Properties:
+          Path: /compute
+          Method: POST
+          RestApiId: !Ref MyApi
+          Auth:
+            Authorizer: AWS_IAM
 ```   
 
 With AWS SAM v1.10.0, authorization via AWS IAM is not supported yet. Earlier in January 2019, there was [RFC: API Gateway IAM (AWS_IAM) Authorizers](https://github.com/awslabs/serverless-application-model/issues/781){:target="_blank"}.  
@@ -238,23 +270,39 @@ Save the changes to create a new Lambda Authorizer.
 ### AWS SAM / Swagger with AWS CloudFormation
 #### AWS SAM API Auth Object
 You can use [AWS SAM API Auth Object](https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api-auth-object){:target="_blank"} to configure your yaml file to use Lambda Authorizer based on the following example. MyAuthFunction refers to your Lambda Authorizer function.  
+Note that for AWS::Serverless::Function, if the referred API has a default authorizer set, you can use Auth item to override the default authorizer by setting Authorizer: 'None'.  
+
 ```yaml
-MyLambdaRequestAuth:
-  FunctionPayloadType: REQUEST
-  FunctionArn: !GetAtt MyAuthFunction.Arn
-  FunctionInvokeRole: # OPTIONAL
-  Identity:
-    # Must specify at least one of Headers, 
-    # QueryStrings, StageVariables, or Context
-    Headers: # OPTIONAL
-      - Authorization1
-    QueryStrings: # OPTIONAL
-      - Authorization2
-    StageVariables: # OPTIONAL
-      - Authorization3
-    Context: # OPTIONAL
-      - Authorization4
-    ReauthorizeEvery: 0 # OPTIONAL; Service Default: 300
+MyApi:
+  Type: AWS::Serverless::Api
+  Properties:
+    StageName: Prod
+    Auth:
+      DefaultAuthorizer: MyLambdaTokenAuth # OPTIONAL
+      Authorizers:
+        MyLambdaTokenAuth:
+          FunctionPayloadType: TOKEN 
+          FunctionArn: !GetAtt MyAuthFunction.Arn
+          FunctionInvokeRole: arnOfRole
+          Identity:
+            Header: 'Authorization'
+            ValidationExpression: customExpr # OPTIONAL
+            # Default ReauthorizeEvery: 300 seconds
+            ReauthorizeEvery: 20 # OPTIONAL; 
+MyFunction:
+  Type: AWS::Serverless::Function
+  Properties:
+    FunctionName: MyFunction
+    ...
+    Events:
+      Post:
+        Type: Api
+        Properties:
+          Path: /compute
+          Method: POST
+          RestApiId: !Ref MyApi
+          Auth:
+            Authorizer: MyLambdaTokenAuth
 ```
   
 Another example:
@@ -271,6 +319,9 @@ MyApi:
           FunctionArn: !GetAtt MyAuthFunction.Arn
           # FunctionInvokeRole: !Ref MyRole
           Identity:
+            # Must specify at least one of 
+            # Headers, QueryStrings, 
+            # StageVariables, or Context
             QueryStrings:
               - auth
             # NOTE: Additional options:
@@ -280,8 +331,24 @@ MyApi:
             #   - AUTHORIZATION
             # Context:
             #   - authorization
-            # ReauthorizeEvery: 100 # seconds
+            # Default ReauthorizeEvery: 300 seconds
+            # ReauthorizeEvery: 100 # OPTIONAL; 
+MyFunction:
+  Type: AWS::Serverless::Function
+  Properties:
+    FunctionName: MyFunction
+    ...
+    Events:
+      Post:
+        Type: Api
+        Properties:
+          Path: /compute
+          Method: POST
+          RestApiId: !Ref MyApi
+          Auth:
+            Authorizer: MyLambdaRequestAuthorizer
 ```
+
 You can refer this [AWS SAM github example](https://github.com/awslabs/serverless-application-model/blob/master/examples/2016-10-31/api_lambda_request_auth/template.yaml
 ){:target="_blank"} for more information.  
 
@@ -327,7 +394,7 @@ MyApi:
             authorizerUri:
             - # ARN of Lambda Authorizer
             type: "token"
-            authorizerCredentials: "arn:aws:iam::account-id:role"
+            authorizerCredentials: "arn:aws:iam::acc-id:role"
             identityValidationExpression: "^x-[a-z]+"
             authorizerResultTtlInSeconds: 60
       paths:
