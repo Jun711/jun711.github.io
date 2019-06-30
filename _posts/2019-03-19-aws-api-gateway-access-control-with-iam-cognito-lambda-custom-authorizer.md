@@ -127,7 +127,7 @@ For x-amazon-apigateway-integration uri, you can refer to this [AWS SAM example 
 1. On Api Gateway console left panel, choose your API and select 'Resources'.  
 ![AWS API Gateway Authorizer](/assets/images/2019-03-19-aws-api-gateway-access-control-with-iam-cognito-lambda-custom-authorizer/aws-api-gateway-console-resources-item-2019-03-19.png)
 
-2. Select 'Resources' on the left panel. Select the resource and method that you want to secure.
+2. On the resource list, select the resource and method that you want to secure.
 ![AWS API Gateway API Method Request](/assets/images/2019-03-19-aws-api-gateway-access-control-with-iam-cognito-lambda-custom-authorizer/aws-api-gatway-console-api-resources-method-request-2019-03-19.png)
 
 3. On Method Request menu, in settings section, click pencil icon on the right of Authorization item to open up Authorization option menu. 
@@ -141,8 +141,8 @@ For x-amazon-apigateway-integration uri, you can refer to this [AWS SAM example 
 
 ### AWS SAM / Swagger with AWS CloudFormation
 #### AWS SAM API Auth Object
-With AWS SAM v1.10.0, authorization via AWS IAM is not supported yet. Earlier in January 2019, there was [RFC: API Gateway IAM (AWS_IAM) Authorizers](https://github.com/awslabs/serverless-application-model/issues/781){:target="_blank"}.  
-Thanks to Takahiro Horike that completed a [pull request for adding AWS IAM authorizer](https://github.com/awslabs/serverless-application-model/pull/827){:target="_blank"}. When it is released, you will be able to use it like this based on the [pull request document](https://github.com/horike37/serverless-application-model/blob/c281b55c65944ce7f3cbfd6366d14e58e8fafa7e/versions/2016-10-31.md#api-auth-object){:target="_blank"}.
+With [AWS SAM v1.11.0](https://github.com/awslabs/serverless-application-model/releases/tag/v1.11.0){:target="_blank"}, AWS SAM supports IAM Authorizer.
+
 ```yaml
 MyApi:
   Type: AWS::Serverless::Api
@@ -150,7 +150,10 @@ MyApi:
     StageName: Prod
     Auth:
       DefaultAuthorizer: AWS_IAM
-```       
+```   
+
+With AWS SAM v1.10.0, authorization via AWS IAM is not supported yet. Earlier in January 2019, there was [RFC: API Gateway IAM (AWS_IAM) Authorizers](https://github.com/awslabs/serverless-application-model/issues/781){:target="_blank"}.  
+Thanks to Takahiro Horike that completed a [pull request for adding AWS IAM authorizer](https://github.com/awslabs/serverless-application-model/pull/827){:target="_blank"}. When it is released, you will be able to use it like this based on the [pull request document](https://github.com/horike37/serverless-application-model/blob/c281b55c65944ce7f3cbfd6366d14e58e8fafa7e/versions/2016-10-31.md#api-auth-object){:target="_blank"}.    
 
 #### OpenAPI's Swagger
 You can use [OpenAPI's Swagger object's Security Definitions object](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#security-definitions-object){:target="_blank"}. CloudFormation supports Swagger for API Gateway configuration.
@@ -353,6 +356,6 @@ MyApi:
 For x-amazon-apigateway-integration uri, you can refer to this [AWS SAM example on GitHub](https://github.com/eugenp/tutorials/blob/master/aws-lambda/sam-templates/template-inline-swagger.yaml){:target="_blank"}.
 
 ## Summary
-In summary, it is important to secure your AWS API Gateway endpoints to prevent them to be misused by third parties which will incur unnecessary cost to you. With this, hopefully, you can set up authorization or control access to your AWS API Gateway endpoints.
+In conclusion, it is important to secure your AWS API Gateway endpoints to prevent them to be misused by third parties which will incur unnecessary cost to you. With this, hopefully, you can set up authorization or control access to your AWS API Gateway endpoints.
 
 {% include eof.md %}
