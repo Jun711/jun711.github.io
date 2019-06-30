@@ -28,10 +28,10 @@ Date : Method completed with status: 500
 ```
 
 ## Expected Behavior
-We expect to publish and API Gateway can invoke AWS Lambda functions successfully.
+Published API on API Gateway is able to invoke AWS Lambda functions successfully.
 
 ## Reason
-The reason is we have to explicitly specify the ARN of an IAM role for API Gateway to assume when invoking a Lambda function. If none is specified, resource-based permissions are needed.   
+Why didn't it work? The reason is we have to explicitly specify the ARN of an IAM role for API Gateway to assume when invoking a Lambda function. If none is specified, resource-based permissions are needed.   
 
 Quoting [AWS x-amazon-apigateway-integration Object document](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-integration.html){:target="_blank"}:
 
@@ -65,7 +65,7 @@ Once you click OK on the popup, a resource based policy will be added to Lambda 
 ### 2. Resource-based Policy
 On the other hand, you can declare a permission entity in your yaml file. By adding a resource-based policy in your yaml file, a resource-based policy will be attached to your lambda function(s). The following is the `AWS::Lambda::Permission` entity that you need to add to your yaml file. Read more about [Lambda Permission on AWS document](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html){:target="_blank"}.
 
-Note that if you use resource-based policy, you will have to attach at least one per lambda function. There is still chance that you reach the 20KB limit.
+Note that if you use resource-based policy, you will have to attach at least one per lambda function. There is still a chance that your policy size reaches 20KB limit.
 
 ```yaml
 YourLambdaFunctionName:
@@ -101,10 +101,10 @@ You can use AWS Lambda CLI [get-policy](https://docs.aws.amazon.com/cli/latest/r
 Another way is to create an IAM role that allows `lambda:InvokeFunction` action and trust API Gateway service `apigateway.amazonaws.com`.  
 
 #### AWS IAM Console
-1. Go to AWS IAM console and click `Create Role`. For step 1, choose AWS service and then Lambda.  
+1. Go to AWS IAM console and click `Create Role`. Afterwards, choose AWS service and Lambda.  
 ![AWS IAM Create Role Choose Service](/assets/images/2019-04-20-aws-api-gateway-invoke-lambda-function-permission/aws-iam-create-role-choose-service-2019-04-20.png)
 
-2. For step 2, attach permissions policies that you need. Filter for AWS managed policy: AWSLambdaRole that allows `lambda:InvokeFunction` for all resources or specified Lambda functions. You can also attach other policies that you need such as CloudWatchLogsFullAccess in my case.
+2. Attach permissions policies that you need. Filter for AWS managed policy: AWSLambdaRole that allows `lambda:InvokeFunction` for all resources or specified Lambda functions. You can also attach other policies that you need such as CloudWatchLogsFullAccess in my case.
 
 ```json
 {
@@ -136,6 +136,8 @@ Another way is to create an IAM role that allows `lambda:InvokeFunction` action 
 {:start="5"}
 5. Edit Trust Relationships so that this role trusts apigateway.amazonaws.com.
 ![AWS IAM Create Role Trust Relationships](/assets/images/2019-04-20-aws-api-gateway-invoke-lambda-function-permission/aws-iam-create-role-trust-api-gateway-2019-04-20.png)
+
+These are all the steps needed to create a role on AWS console.
 
 #### AWS IAM CLI
 You can use AWS IAM [create-role](https://docs.aws.amazon.com/cli/latest/reference/iam/create-role.html){:target="_blank"} and [attach-role-policy](https://docs.aws.amazon.com/cli/latest/reference/iam/attach-role-policy.html){:target="_blank"} command.
@@ -169,7 +171,7 @@ You can use AWS IAM [create-role](https://docs.aws.amazon.com/cli/latest/referen
   ]
 }
 ```
-
+{:start="2"}
 2. Then, attach AWSLambdaRole role policy.  
 <pre class='code'>
 <code>aws iam attach-role-policy 
@@ -185,7 +187,7 @@ If you want to use CloudWatch for your API Gateway log, you can attach CloudWatc
 </code></pre>
 
 #### Assign Role in YAML / JSON
-After you create a role using AWS console or CLI, assign the ARN of your role to the credential item in the x-amazon-apigateway-integration definition of your API yaml file. The ARN of your role looks like this: `"arn:aws:iam::ACC_NUM:role/IAM_ROLE_NAME"`.
+After creating a role using AWS console or CLI, assign the ARN of your role to the credential item in the x-amazon-apigateway-integration definition of your API yaml file. The ARN of your role looks like this: `"arn:aws:iam::ACC_NUM:role/IAM_ROLE_NAME"`.
 
 ```yaml
 MyApi:
