@@ -16,7 +16,7 @@ tags:
 Learn how to send API requests using AWS Amplify API with retries. This function pattern also works for retrying a promise when the promise rejects.
 
 ## Solution
-With JavaScript default function parameters and recursion, you can make your API requests to retry when fails. In essence, it retries a JavaScript function call that returns a promise until a certain condition is met. 
+With recursion, you can make your API requests to retry when they fails. With JavaScript default function parameters, you can set a default number of retries. In essence, it retries a JavaScript function call that returns a promise until certain conditions are met. 
 
 ### Default Function Parameters
 Default function parameters allow named parameters of a function to have a default value if no value is passed during function call.  
@@ -34,7 +34,7 @@ AWS Amplify is a JavaScript library for application(frontend) development with A
 This example is using TypeScript with AWS Amplify API.
 1. You can add a default function parameter, retries, so that you can minimize the modification of your existing function calls.
 2. In the catch clause, retry if retry count is greater than 0 else handle error. 
-3. To check if it works, purposely throw an error when api call succeeds. Check Network tab of your browser and you should see 3 same requests.
+3. To check if it works, purposely throw an error when api call succeeds. Check Network tab of your browser dev tools and you should see 3 same requests.
 
 ```typescript
 import API from '@aws-amplify/api';
@@ -57,6 +57,9 @@ public apiCall(retries = 2): Promise<any> {
       return response;
     })
     .catch(err => {
+      // You can set other conditions here
+      // for example, 
+      // don't retry when encountering error 429
       if (retries == 0) {
         // handle API call errors here 
         // return Promise.reject(err);
@@ -107,7 +110,7 @@ JavaScript retrying promise when there is an error.
 
 ### Promise example
 ```javascript
-// this is your function that returns a promise
+// function that returns a promise
 function myPromiseFunction(parameter) {
   return new Promise((resolve, reject) => {
     const rand = Math.random();
@@ -120,8 +123,8 @@ function myPromiseFunction(parameter) {
   })
 }
 
-// retry if function rejects with 2 retries 
-function myFunctionWrapper(parameter, retries = 2) {
+// retry if function rejects with retries value greater than 0 
+function myRetryFunction(parameter, retries = 2) {
   return myPromiseFunction(paramter)
     .then(response => {
       return response;
@@ -133,12 +136,12 @@ function myFunctionWrapper(parameter, retries = 2) {
         return Promise.reject(err);
       } else {
         // apiCall with one less retry
-        return myFunctionWrapper(parameter, --retries);
+        return myRetryFunction(parameter, --retries);
       }
     });
 ```
 
-On the other hand, you can modify your promise function to include a catch clause like the following. 
+In addition, you can modify your promise function to include a catch clause like the following example instead of having a retry function. 
 ```javascript
 function myPromiseFunction(parameter, retries = 2) {
   return new Promise((resolve, reject) => {
@@ -166,7 +169,7 @@ function myPromiseFunction(parameter, retries = 2) {
 The following is the same example as before but with async and await syntax.
 
 ```javascript
-// this is your function that returns a promise
+// function that returns a promise
 function myPromise(parameter) {
   return new Promise((resolve, reject) => {
     const rand = Math.random();
@@ -179,8 +182,8 @@ function myPromise(parameter) {
   })
 }
 
-// retry if function rejects with 2 retries 
-async function myFunctionWrapper(parameter, retries = 2) {
+// retry if function rejects with retries value greater than 0 
+async function myRetryFunction(parameter, retries = 2) {
   try {
     return await myPromise(parameter);;
   }
@@ -191,13 +194,13 @@ async function myFunctionWrapper(parameter, retries = 2) {
       return Promise.reject(err);
     } else {
       // apiCall with one less retry
-      return myFunctionWrapper(parameter, --retries);
+      return myRetryFunction(parameter, --retries);
     }
   }
 ```
 
 ## Summary
-With this, you can retry your AWS Amplify API requests and promise calls. 
+With this, you can make your AWS Amplify API requests and promise calls retry itself until conditions met. You can also modify the above function to have it retry with timeout. 
 
 {% include eof.md %}
 
