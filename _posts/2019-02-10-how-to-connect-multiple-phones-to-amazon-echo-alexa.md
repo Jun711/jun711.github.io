@@ -14,6 +14,11 @@ This is to clarify the steps to connect multiple phones via bluetooh to an [Amaz
 
 Note that this is not an Echo and Alexa setup guide. This is also not an explanation about connecting another user to your amazon household account.
 
+## Echo Plus
+Note that this is an Amazon Echo Plus with new premium speakers powered by Dolby play 360° audio with crisp vocals and dynamic bass response. Please <a target="_blank" href="https://amzn.to/2lsZD5y">check it out</a>.  
+
+<a target="_blank" href="https://www.amazon.ca/gp/product/B0794VRH3Q/ref=as_li_tl?ie=UTF8&camp=15121&creative=330641&creativeASIN=B0794VRH3Q&linkCode=as2&tag=jun7110a-20&linkId=3e8564600fd058e70720c646777ae2bd"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=CA&ASIN=B0794VRH3Q&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=jun7110a-20" ></a><img src="//ir-ca.amazon-adsystem.com/e/ir?t=jun7110a-20&l=am2&o=15&a=B0794VRH3Q" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+
 ## Download Amazon Alexa App
 If you haven't download your Alexa phone app, you can go to the respective links below to download Alexa app to begin.
 
