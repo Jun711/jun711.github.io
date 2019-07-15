@@ -2,5 +2,7 @@ Thank you for reading!&nbsp;&nbsp;&nbsp; <style>.bmc-button img{width: 27px !imp
 
 <a href="https://www.amazon.ca/?&amp;_encoding=UTF8&amp;tag=jun7110a-20&amp;linkCode=ur2&amp;linkId=60b74555f1611d644d27d8b13f8b9418&amp;camp=15121&amp;creative=330641" target="_blank">Support me on Amazon Canada</a>
 
+If you are preparing for Software Engineer interviews, I suggest <a href="https://amzn.to/2ljwZnc" target="_blank">Elements of Programming Interviews in Java</a>. Good luck!
+
 You can also support me by following me on <a href="https://medium.com/@jun711.g" target="view_window">Medium</a> and <a href="https://twitter.com/Jun711_" target="view_window">Twitter</a>.
 
