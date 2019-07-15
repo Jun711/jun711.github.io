@@ -200,7 +200,7 @@ async function myRetryFunction(parameter, retries = 2) {
 ```
 
 ## Summary
-With this, you can make your AWS Amplify API requests and promise calls retry itself until conditions met. You can also modify the above function to have it retry with timeout. 
+With this, you can make your AWS Amplify API requests and promise calls retry itself until conditions are met. You can also modify the above function to have it retry with timeout. 
 
 {% include eof.md %}
 
