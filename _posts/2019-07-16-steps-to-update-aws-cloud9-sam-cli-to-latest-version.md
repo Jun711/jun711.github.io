@@ -184,6 +184,5 @@ Commands:
 ## Summary
 With the latest SAM CLI installed, you can invoke Lambda function that set runtime as Python 3.7 locally, access global environment variables and other updated features.
   
-## Support  
-  
+
 {% include eof.md %}

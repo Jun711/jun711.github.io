@@ -212,7 +212,7 @@ MyApi:
               credentials: "arn:aws:iam::ACC_NUM:role/ApiGatewayInvokeLambdaRole"
               type: "aws_proxy"
 ```
-### Summary
+## Summary
 I suggest using a resource-based policy or an IAM role to minimize operational overhead.
 
 {% include eof.md %}
