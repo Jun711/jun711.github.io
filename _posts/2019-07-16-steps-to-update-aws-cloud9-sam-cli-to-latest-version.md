@@ -9,7 +9,6 @@ tags:
   - serverless
   - AWS Lambda
   - AWS Cloud9
-
   - AWS Serverless Application Model(AWS SAM)
 ---
 
