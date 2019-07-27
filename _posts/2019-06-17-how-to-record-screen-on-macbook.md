@@ -1,7 +1,7 @@
 ---
 layout: single
 header:
-  teaser: /assets/images/quicktime-player.png
+  teaser: /assets/images/teasers/quicktime-player.png
 title: "Screen Recording on Macbook"
 date: 2019-06-17 20:00:00 -0800
 categories: How-to
