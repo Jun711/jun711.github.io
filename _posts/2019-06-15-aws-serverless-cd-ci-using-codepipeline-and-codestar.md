@@ -36,7 +36,7 @@ Quoted from AWS CodePipeline page:
 ### 1. Create a CodeStar Project
 Create a CodeStar web service project. You can choose Cloud9 as your IDE and CodeCommit as your code repository. It may take a few minutes for AWS to create and configure resources for your CodeStar project.
 
-When CodeStar project is ready, you can open up the default project code using Cloud9 or clone and open it using your local IDE.  
+When CodeStar project is ready, you can open up the default project code using Cloud9 IDE or git clone and open it using your local IDE.  
 
 ![CodeStar Project Ready](/assets/images/2019-06-15-aws-serverless-cd-ci-using-codepipeline-and-codestar/codestar-codepipeline-setup-1-codestar.png)
 
@@ -56,7 +56,7 @@ Resources:
       ...
 ```
 
-Opening template.yml on Cloud9 IDE.  
+Template.yml on Cloud9 IDE.  
 
 ![Cloud9 Edit yaml](/assets/images/2019-06-15-aws-serverless-cd-ci-using-codepipeline-and-codestar/codestar-codepipeline-setup-2-edit-yaml-functionName.png)
 
@@ -71,7 +71,7 @@ git push -u origin prod
 ```
 
 ### 3. Edit Dev Pipeline
-On the left panel of a CodeStar project console, you can see a Pipeline button. Click on it will open up the default pipeline created for your project. At this step, you will modify the default pipeline to make it a development pipeline.
+On the left panel of a CodeStar project console, you can see a Pipeline button. Clicking on it will open up the default pipeline created for your project. At this step, you will modify the default pipeline to make it a development pipeline.
 
 Click on `Edit` button edit pipeline.   
 
@@ -94,7 +94,7 @@ Click `Clone pipeline` button to open up clone pipeline menu.
 ![CodePipeline Clone Pipeline](/assets/images/2019-06-15-aws-serverless-cd-ci-using-codepipeline-and-codestar/codestar-codepipeline-setup-8-clone-action.png)
 
 Do the following to create a production pipeline.
-1. Change pipeline name to something that makes sense. For me, I usually add word `prod` to inform colleagues that this is the prod pipeline.
+1. Change pipeline name to something that makes sense. I usually add the word `prod` to inform colleagues that this is the prod pipeline.
 
 2. Choose `new service role` to create a new service role for your production pipeline.
 3. Choose custom location for Artifact store and search for your project name. Based on typeahead suggestion, select the same location as default pipeline.
@@ -117,14 +117,13 @@ Edit Deploy stage to modify GenerateChangeSet and ExecuteChangeSet actions.
 
 On GenerateChangeSet 'Edit action' menu, look for 'Change set name', it is somewhere in the middle of the menu.  
 
-Copy 'Change set name' value as you will need to paste it back later. As of 2019 June, its value is `pipeline-changeset`.  
+Copy 'Change set name' value as you will need to paste it back later. As of June 2019, its value is `pipeline-changeset`.  
 
 Look for 'Stack name' and change its value to create a new stack. I usually add the word `prod` to label it as prod stack. Then, paste the copied value in 'Change set name' field.  
 
 ![CodePipeline GenerateChangeSet Stack](/assets/images/2019-06-15-aws-serverless-cd-ci-using-codepipeline-and-codestar/codestar-codepipeline-setup-13-change-stack-name-to-include-prod.png)
 
 Scroll to advanced section and add `"Stage": "Prod"` to parameter JSON object.   
-
 ![CodePipeline GenerateChangeSet Parameter JSON object](/assets/images/2019-06-15-aws-serverless-cd-ci-using-codepipeline-and-codestar/codestar-codepipeline-setup-14-change-generateChangeSet-param-stage-to-prod.png)
 
 After modifying GenerateChangeSet action, do the same as editing stack name step above for ExecuteChangeSet action.  
@@ -146,7 +145,7 @@ Production pipeline has been created successfully. You can test it by clicking `
 ![CodeStar Production Pipeline Ready](/assets/images/2019-06-15-aws-serverless-cd-ci-using-codepipeline-and-codestar/codestar-codepipeline-setup-16-prod-pipeline-build.png)
 
 ## CodePipeline Approval Stage
-You can also add manual approval stage to enable code review, prevent accidental commits and other reasons.  
+You can also add a manual approval stage to enable code review, prevent accidental commits and other reasons.  
 
 If you include a SNS(Simple Notifcation Service) topic ARN, users listed in that ARN will receive an email notification when approval is needed.  
 
@@ -159,6 +158,11 @@ After adding an approval stage, it will appear like this on CodePipeline console
 On CodeStar console, it will look like this.  
 
 ![CodeStar Pending Approval](/assets/images/2019-06-15-aws-serverless-cd-ci-using-codepipeline-and-codestar/codestar-codepipeline-setup-18-pending-approval.png)
+
+## Conclusion
+Note that git push on master branch will deploy to development API and git push on prod branch will deploy to production API. To prevent accidental commits on production branch, I suggest adding an approval stage. 
+
+With this setup, you can develop new features, execute hot-fix and at the same time keep your production API unaffected.
 
 ## Caveats
 1. There is a maximum number of 300 pipelines allowed per AWS Region in an AWS account. It is a soft limit which be increased if needed.
