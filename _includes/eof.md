@@ -6,5 +6,5 @@ Thank you for reading!&nbsp;&nbsp;&nbsp; <style>.bmc-button img{width: 27px !imp
 
 If you are preparing for Software Engineer interviews, I suggest <a href="https://amzn.to/2ljwZnc" target="_blank">Elements of Programming Interviews in Java</a> for algorithm practice. Good luck!
 
-You can also support me by following me on <a href="https://medium.com/@jun711.g" target="view_window">Medium</a> and <a href="https://twitter.com/Jun711_" target="view_window">Twitter</a>.
+You can also support me by following me on <a href="https://medium.com/@jun711.g" target="view_window">Medium</a> or <a href="https://twitter.com/Jun711_" target="view_window">Twitter</a>.
 
