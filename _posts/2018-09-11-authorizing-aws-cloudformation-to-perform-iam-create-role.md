@@ -17,7 +17,7 @@ Learn how to enable CloudFormation to create roles for your AWS resources.
 ## CodePipeline Error Message
 When I added a policy statement to enable my lambda to use AWS Polly synthesize speech API, CodePipeline ExecuteChangeSet failed with a CloudFormation IAM role error. 
 
-My Lambda function:
+My Lambda function declaration in yaml:
 
 ```yaml
 Type: 'AWS::Serverless::Function'
@@ -49,12 +49,12 @@ awscodestar-test-lambda-helloWorldRole-V5QUHYDCDRBA
 </code></pre>
 
 ## Solution
-Follow the steps below to add necessary IAM policies to your CloudFormation role that are needed to execute role creation for other resources.   
+Follow the steps below to add IAM policies to your CloudFormation role that are needed to execute role creation for other resources.   
 
-1. Go to IAM console and select Role on the left panel.  
+1. Go to AWS IAM console and select Role on the left panel.  
 2. Look for your project CloudFormation role by typing in your project name. Your CloudFormation role summary will look like the screenshot below.   
 
-![Add Inline Policies AWS CloudFormation IAM Role](/assets/images/2018-09-11-authorizing-aws-cloudformation-to-perform-iam-create-role/aws-codestar-cloudformation-iam-role-summary.png)
+![Add Inline Policies for AWS CloudFormation IAM Role](/assets/images/2018-09-11-authorizing-aws-cloudformation-to-perform-iam-create-role/aws-codestar-cloudformation-iam-role-summary.png)
 
 {:start="3"}
 3. Click on `Add inline policy` button to open up policy editor and select `JSON` tab when it is opened.  
@@ -66,7 +66,7 @@ Follow the steps below to add necessary IAM policies to your CloudFormation role
 
 ![AWS IAM Add Policies JSON Input](/assets/images/2018-09-11-authorizing-aws-cloudformation-to-perform-iam-create-role/aws-codestar-cloudformation-create-policy-json-input.png)
  
-AWS IAM policy statement with allowed actions.  
+AWS IAM policy statement with allowed IAM actions.  
 
 ```json
 {
