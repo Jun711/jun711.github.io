@@ -1,7 +1,7 @@
 ---
 layout: single
 header:
-  teaser: /assets/images/teasers/codestar.png
+  teaser: /assets/images/teasers/aws-codestar.png
 title: "Continuous Integration and Continuous Deployment(CI/CD) using AWS CodePipeline and AWS CodeStar"
 date: 2019-06-15 20:00:00 -0800
 categories: AWS
