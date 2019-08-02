@@ -56,12 +56,16 @@ You can check out AWS SAM GitHub issues [553](https://github.com/awslabs/serverl
 
 Thus, the following two syntax causes your specified binary media type to be removed in subsequent deployments.
 
+Using Globals Api BinaryMediaTypes property:  
+
 ```yaml
 Globals:
   Api:
     BinaryMediaTypes:
     - application~1zip
 ```
+
+Using Single Api BinaryMediaTypes property:  
 
 ```yaml
 MyApi:
@@ -86,7 +90,7 @@ Globals:
     - *~1*
 ```
 
-Note that you have use `~1` instead of `/`. APi Gateway will convert it to /.
+Note that you have to use `~1` instead of `/`. API Gateway will convert it to /.
 You can check [AWS SAM 1.4.0 release log](https://github.com/awslabs/serverless-application-model/releases/tag/1.4.0){:target="_view_window"} and [AWS SAM API properties document](https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapi){:target="_view_window"} for more information.
 
 When BinaryMediaTypes is \*/\*, you need to base64 decode `event['body']` to read what it  contains.  
@@ -96,7 +100,7 @@ body = json.loads(base64.b64decode(event['body']))
 ```
 
 ### 2. Lambda Response
-To pass binary response, you will need to base 64 encode it and make it a UTF-8 string. In the response object, you have to include `isBase64Encoded: true` and `Content-Type` header with value as your payload mime type.  
+To pass binary response, you will need to base64 encode it and make it a UTF-8 string. In the response object, you have to include `isBase64Encoded: true` and `Content-Type` header with value as your payload mime type.  
 
 ```python
 # your binary data is in data variable
@@ -129,7 +133,7 @@ After deployment, to verify addition of binary media type, open Api Gateway cons
 ![Api Gateway Binary Media Type](/assets/images/2019-07-02-aws-sam-configuration-for-api-gateway-binary-response/aws-api-gateway-binary-media-types.png)
 
 ### 4. Http Requests
-Your http requests should include an Accept header with value as your binary media type. For example: `Accept: application/zip`.  
+Your http requests need to include an Accept header with value as your binary media type. For example: `Accept: application/zip`.  
 
 The following is a http request example using AWS Amplify API object.  
 
