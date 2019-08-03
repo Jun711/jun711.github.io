@@ -1,7 +1,5 @@
 ---
 layout: single
-header:
-  teaser: /assets/images/teasers/quicktime-player.png
 title: "Chrome vs Firefox vs Safari Reader View"
 date: 2019-08-02 20:00:00 -0800
 categories: How-to
