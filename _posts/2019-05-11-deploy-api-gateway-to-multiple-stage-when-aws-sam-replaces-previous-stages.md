@@ -36,7 +36,7 @@ Open AWS API Gateway console and select your API. Then, click `Actions` button t
 
 ![AWS API Gateway Console Integration Request](/assets/images/2019-05-11-deploy-api-gateway-to-multiple-stage-when-aws-sam-replaces-previous-stages/aws-api-gateway-console-actions.png)
 
-Specify your desired deployment stage name and description before deploying your API. Click `Deploy` to deploy the API.  
+Specify your desired deployment stage name and description before deploying your API. Click `Deploy` to deploy your API.  
 
 ![AWS API Gateway Console Integration Request](/assets/images/2019-05-11-deploy-api-gateway-to-multiple-stage-when-aws-sam-replaces-previous-stages/aws-api-gateway-deploy-api.png)
 
@@ -46,7 +46,7 @@ You have deployed your API to a new stage. The associated invoke url will contai
 ![AWS API Gateway Console Integration Request](/assets/images/2019-05-11-deploy-api-gateway-to-multiple-stage-when-aws-sam-replaces-previous-stages/aws-api-gateway-api-stages.png)
 
 ### 4. Future Deployment
-However, for future deployments, after you deploy using CodePipeline, it will only deploy to the stage specified on your yaml file. It will not affect the stage you manually deployed on AWS API Gateway console.  
+For future deployments, after you deploy using CodePipeline, it will only deploy to the stage specified on your yaml file. It will not affect the stage you manually deployed on AWS API Gateway console.  
 
 #### 4.1 AWS API Gateway Console
 Thus, to deploy to your manually deployed stage, you have to go to API Gateway and repeat step 2.  
