@@ -1,5 +1,7 @@
 ---
 layout: single
+header:
+  teaser: /assets/images/teasers/chrome-firefox-safari.png
 title: "Chrome vs Firefox vs Safari Reader View"
 date: 2019-08-02 20:00:00 -0800
 categories: How-to
@@ -10,7 +12,7 @@ tags:
   - Productivity
 ---
 
-## Overview:  
+## Overview: 
 Learn how to turn on reader view on Google Chrome, Mozilla Firefox and Safari browsers. 
 
 ## Chrome Reader View
