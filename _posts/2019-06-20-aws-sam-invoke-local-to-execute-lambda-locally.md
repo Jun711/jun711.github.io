@@ -10,8 +10,6 @@ tags:
   - AWS Serverless Application Model(AWS SAM)
   - serverless
 ---
-
-## Overview:
 Learn how to invoke AWS Lambda functions on your machine using AWS SAM CLI.
 
 ## Steps

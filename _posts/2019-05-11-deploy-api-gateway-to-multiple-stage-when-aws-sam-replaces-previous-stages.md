@@ -13,7 +13,6 @@ tags:
   - CI/CD
 ---
 
-## Overview:
 Learn how to create multiple API Gateway deployment stages even though AWS SAM replaces previous stages in subsequent deployments.   
 
 Note that this is a workaround to AWS SAM template replaces previously deployed stage when you change API StageName property on yaml. It is probably not an optimal solution as it involves an extra step after deployment via CodePipeline.   

@@ -11,8 +11,6 @@ tags:
   - Safari
   - Productivity
 ---
-
-## Overview: 
 Learn how to turn on reader view on Google Chrome, Mozilla Firefox and Safari browsers. 
 
 ## Chrome Reader View

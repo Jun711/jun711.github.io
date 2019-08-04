@@ -9,8 +9,6 @@ tags:
   - Amazon DynamoDB
   - Python
 ---
-
-## Overview: 
 Learn how to make Amazon DynamoDB(DDB) tables clean up itself.
 
 You can make Amazon DynamoDB table entries expire automatically by setting a time-to-live timestamp attribute. This timestamp is in [Unix Epoch time](https://en.wikipedia.org/wiki/Unix_time){:target="_blank"} format which is number of seconds that have elapsed since 1 January 1970 00:00:00. Your DDB entries will be scheduled to be deleted if current Unix Epoch time is greater than its time-to-live value.

@@ -11,8 +11,6 @@ tags:
   - AWS Serverless Application Model(AWS SAM)
   - serverless
 ---
-
-## Overview:
 Learn how to configure AWS SAM to enable Binary Response such as `audio/mpeg`, `application/zip`, `image/jpeg` etc from AWS Api Gateway with Lambda proxy integration. 
 
 ## Steps

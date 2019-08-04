@@ -8,7 +8,6 @@ categories: Web
 tags:
   - Javascript
 ---
-## Overview:
 Learn how to listen for upload progress when you use AJAX - XMLHttpRequest(XHR). 
 
 ## Introduction

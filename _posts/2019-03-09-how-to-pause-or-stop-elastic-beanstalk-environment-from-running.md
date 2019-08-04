@@ -8,8 +8,6 @@ categories: AWS
 tags:
   - AWS Elastic Beanstalk
 ---
-
-## Overview:
 There is no straightforward way to pause an Elastic Beanstalk(EB) environment on AWS console. You can't terminate it as it will be deleted.   
 Fret not, you can stop your EB environment from running when it is not needed so that you only pay when you use it.
 

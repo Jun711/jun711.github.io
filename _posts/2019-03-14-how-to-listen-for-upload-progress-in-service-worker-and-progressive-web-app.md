@@ -11,7 +11,6 @@ tags:
   - PWA
   - Service Worker
 ---
-## Overview:
 Since XMLHttpRequest(XHR) is not usable in a service worker scope and fetch API hasn't supported upload progress as of 2019 March, how to listen for upload progress when we use a service worker?
 
 It is possible to listen for upload progress with a workaround.

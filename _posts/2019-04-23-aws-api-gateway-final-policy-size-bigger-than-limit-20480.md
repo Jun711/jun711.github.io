@@ -10,8 +10,6 @@ tags:
   - AWS Lambda
   - AWS Boto 3
 ---
-
-## Overview:
 Learn how to deal with AWS API Gateway "Final policy size bigger than limit(20480)" error. 
 
 ## Issue

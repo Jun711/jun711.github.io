@@ -8,9 +8,7 @@ categories: AWS
 tags:
   - Amazon S3
   - Python
----
-
-## Overview: 
+--- 
 When I was downloading via an Amazon S3 url, I realized that it had the exact name as how I kept it in the storage. It would be more informative and convenient to users if the downloaded that have meaningful names instead of randomly generated IDs. 
 
 ## Download attribute

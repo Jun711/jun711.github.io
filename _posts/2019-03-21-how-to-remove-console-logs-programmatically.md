@@ -9,7 +9,6 @@ tags:
   - JavaScript
   - Regex
 ---
-## Overview:
 Learn how to remove [JavaScript console methods](https://developer.mozilla.org/en-US/docs/Web/API/Console){:target="_blank"} such as console log programmatically from your JavaScript files.
 
 ## Solutions:

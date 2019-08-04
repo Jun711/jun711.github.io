@@ -7,7 +7,6 @@ date: 2019-03-11 20:00:00 -0800
 categories: ['Web']
 tags: ['Chrome', 'Debug']
 ---
-## Overview:
 Web browsers and mobile browsers don't behave the same and sometimes don't support the same functionalities. It is important for us to test our app on mobile browsers too especially the browsers that most of our users are using. 
 
 This post just discusses on how to test and debug web applications and websites on Google Chrome remotely.

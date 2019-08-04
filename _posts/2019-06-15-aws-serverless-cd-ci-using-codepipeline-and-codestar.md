@@ -11,8 +11,6 @@ tags:
   - serverless
   - CI/CD
 ---
-
-## Overview:
 Learn how to create development and production pipelines for your web service projects using AWS CodePipeline and AWS CodeStar. Having a development and a production pipeline can streamline development and production workflow.
 
 ## AWS CodeStar

@@ -11,8 +11,6 @@ tags:
   - AWS Amplify
   - JavaScript
 ---
-
-## Overview:
 Learn how to send API requests using AWS Amplify API with retries. This function pattern also works for retrying a promise when the promise rejects.
 
 ## Solution

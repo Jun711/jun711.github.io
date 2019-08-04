@@ -10,8 +10,6 @@ tags:
   - Python
   - Boto3
 ---
-
-## Overview:
 Learn how to upload a zip file to AWS S3 using Boto3 Python library.
 
 ## Boto3

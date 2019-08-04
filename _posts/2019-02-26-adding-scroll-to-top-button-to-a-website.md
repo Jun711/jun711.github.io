@@ -7,8 +7,6 @@ date: 2019-02-26 20:00:00 -0800
 categories: ['Web']
 tags: ['User Interface(UI)', 'JavaScript', 'HTML-CSS', 'Jekyll']
 ---
-
-## Overview:
 When a page has long content, it would be good to have anchors at sections' titles and also a scroll-to-top that help users navigate and scroll. 
 
 This post talks about how to add a scroll-to-top button to a jekyll site but in general, it applies to any websites. 

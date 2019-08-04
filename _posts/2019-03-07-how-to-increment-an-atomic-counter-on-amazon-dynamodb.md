@@ -8,9 +8,7 @@ categories: AWS
 tags:
   - Amazon DynamoDB
   - Python
----
-
-## Overview: 
+--- 
 If you use Amazon DynamoDB to keep track of usage count, you may encounter a situation where you need to increase a user's usage count when the user is actively using your service, how do you make sure you calculate the total usage correctly? How do you make sure you don't count more or less? 
 
 ## Serverless Setup

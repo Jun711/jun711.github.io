@@ -7,7 +7,6 @@ date: 2019-03-16 20:00:00 -0800
 categories: ['Web']
 tags: ['Debug', 'Test']
 ---
-## Overview:
 You can block a network request on Google Chrome DevTools to see its effect on your web application or website.
 
 ## Purposes

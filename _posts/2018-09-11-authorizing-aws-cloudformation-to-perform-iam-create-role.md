@@ -10,8 +10,6 @@ tags:
   - AWS CloudFormation
   - serverless
 ---
-
-## Overview: 
 Learn how to enable CloudFormation to create roles for your AWS resources. 
 
 ## CodePipeline Error Message

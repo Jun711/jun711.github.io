@@ -13,7 +13,6 @@ tags:
   - AWS Amplify
   - JavaScript
 ---
-## Overview:
 Learn how to use AWS Amplify to sign your API Gateway requests with Signature Version 4.
 
 It is important to secure your API Gateway endpoints. One of the ways is to use AWS IAM roles (AWS_IAM). If there is no authorization to your API Gateway endpoints, your API endpoints could be misused / attacked easily via a script or using curl etc. 

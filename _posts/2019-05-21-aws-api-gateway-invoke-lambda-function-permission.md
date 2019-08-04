@@ -10,8 +10,6 @@ tags:
   - AWS Lambda
   - AWS Serverless Application Model(AWS SAM)
 ---
-
-## Overview:
 Learn how to provide API Gateway permission to invoke Lambda function(s).
 
 ## Issue

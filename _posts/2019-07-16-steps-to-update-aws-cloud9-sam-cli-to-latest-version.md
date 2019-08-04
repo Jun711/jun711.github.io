@@ -11,8 +11,6 @@ tags:
   - AWS Cloud9
   - AWS Serverless Application Model(AWS SAM)
 ---
-
-## Overview:
 Learn how to update AWS Cloud9 IDE(Integrated development environment) AWS SAM(Serverless Application Model) CLI(command-line interface) version. 
 
 As of 2019-07-16, when you create a new AWS CodeStar project with Cloud9 as IDE, its environment is installed with AWS SAM CLI version 0.2.11 but the latest SAM CLI version is 0.18.0

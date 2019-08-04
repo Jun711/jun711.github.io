@@ -7,7 +7,6 @@ date: 2019-03-10 20:00:00 -0800
 categories: ['Web']
 tags: ['Debug', 'Test', 'Angular']
 ---
-## Overview:
 When you develop your Angular app on localhost, you might wonder how it looks like on a real mobile device(phone, tablet, etc.), whether it is responsive to different screen sizes.   
 To do that, you can load your site running on localhost on your mobile devices when they are connected to the same local area network(LAN) such as connecting to the same WiFi.
 

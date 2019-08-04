@@ -12,7 +12,6 @@ tags:
   - Firefox
   - Safari
 ---
-## Overview:
 Learn how to force update or activate your updated service worker when it is in waiting state.
 
 ## Chrome

@@ -9,7 +9,6 @@ tags:
   - MacOS
   - Productivity
 ---
-## Overview:
 Sometimes, it is hard to convey your ideas via text. With videos, you would be able to express your thoughts and ideas more vividly. To show what is going on in your screen for educational purpose, debugging or other purposes, you can record your Macbook screen. 
 
 ## Steps to Record Screen
