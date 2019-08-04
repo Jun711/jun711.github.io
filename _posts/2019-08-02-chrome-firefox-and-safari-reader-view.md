@@ -21,7 +21,7 @@ Since Chrome 75, there is an experimental reader view function where you can ena
 ![Enable Reader View on Chrome](/assets/images/2019-08-02-chrome-firefox-and-safari-reader-view/chrome-enable-reader-mode.png)
 
 {:start="2"}
-2. After that, a new option will appear on top right menu. Click on `⋮` to open the menu and click `distill page` to turn on reader view. 
+2. After that, a new option will appear on the top right menu. Click on `⋮` to open the menu and click `distill page` to turn on reader view. 
 
 ![Turn on Reader View or Distill Page on Chrome](/assets/images/2019-08-02-chrome-firefox-and-safari-reader-view/chrome-open-reader-view-or-distill-page.png)
 
