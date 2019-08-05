@@ -20,8 +20,15 @@
     td:nth-child(2) {
         max-width: 300px;
         min-width: 100px;
-       
     }
+}
+
+.three-col-table {
+    td:nth-child(n+2)  {
+        width: 350px;
+    }
+   
+    table-layout: fixed;
 }
 
 section > h3, section > h4 {
