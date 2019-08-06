@@ -93,4 +93,6 @@ In short, use DynamoDB Global Secondary Index when you need to support querying 
 
 And, use DynamodB Local Secondary index when you need to support querying the items that can be identified using different composite keys. 
 
+Check out [How To Create AWS DDB Secondary Indexes article](https://jun711.github.io/aws/how-to-create-aws-dynamodb-secondary-indexes/){:target="view_window"} to learn how to create secondary indexes.  
+
 {% include eof.md %}
