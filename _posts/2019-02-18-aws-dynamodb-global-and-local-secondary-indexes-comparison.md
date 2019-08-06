@@ -48,7 +48,10 @@ AWS DynamoDB supports two types of indexes: Global Secondary Index (GSI) and Loc
 | Count Per Table | 20 per DDB table | 5 per DDB table |
 {: .three-col-table table }
 
-Since GSIs have their own throughput consumption, to minimize cost, I suggest project only attributes that are needed. You can always create a new index that projects more attributes and replace the existing one when use case changes.  
+### Note
+1. Since Global Secondary Indexes have their own throughput consumption, to minimize cost, I suggest project only attributes that are needed. You can always create a new index that projects more attributes and replace the existing one when use case changes.
+
+2. Global Secondary Indexes are sparse indexes as only items in the base table that are the specified attributes appear in the index.  
 
 ## Which One Should I Use?
 Check out the following GSI and LSI examples to get an idea of when to use which. 
