@@ -44,7 +44,7 @@ AWS DynamoDB supports two types of indexes: Global Secondary Index (GSI) and Loc
 | Deletion | Anytime | When DDB table is deleted |
 | Read Consistency | Eventual consistency | Eventual and strong consistency |
 | Provisioned Throughput Consumption | Each index has its own provisioned throughput independent of base table | Queries, Scans and Updates consume read and write capacity units of the base table |
-| Projected Attributes | Limited to attributes specified during creation | Can request attributes that aren't specified during creation as DDB will fetch them automatically with extra throughput cost |
+| Projected Attributes | Limited to attributes specified during creation | Can request attributes that aren't specified during creation as DDB will fetch them automatically with an extra throughput cost |
 | Count Per Table | 20 per DDB table | 5 per DDB table |
 {: .three-col-table table }
 
