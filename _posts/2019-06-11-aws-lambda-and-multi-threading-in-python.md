@@ -13,8 +13,8 @@ An example of using Python multi-threading in AWS Lambda.
 ## Why Multi Threading
 Using multithreading in AWS Lambda can speed up your Lambda execution and reduce cost as Lambda charges in 100 ms unit.  
 
-## Python sThreadPoolExecutor
-Note that ThreadPoolExecutor is available with Python 3.6 and 3.7+ runtime. ThreadPoolExecutor provides a simple abstraction to using multiple threads to perform taks concurrently.   
+## Python ThreadPoolExecutor
+Note that ThreadPoolExecutor is available with Python 3.6 and 3.7+ runtime. ThreadPoolExecutor provides a simple abstraction to using multiple threads to perform tasks concurrently.   
 
 ### Creating a ThreadPoolExecutor
 You can create a ThreadPoolExecutor instance using the following syntax. You can control number of concurrent workers / threads by setting `max_workers` parameter.   
@@ -88,6 +88,7 @@ def countHighFrequencyItem(list_of_items):
                     item_index)
 
         temp_res = list(range(len(list_of_items)))
+        # process completed tasks
         for future in as_completed(all_tasks):
             tooFrequent, index = future.result()
             temp_res[index] = tooFrequent
@@ -101,6 +102,6 @@ def countHighFrequencyItem(list_of_items):
 ```
 
 ## Summary
-You can use Python ThreadPoolExecutor to execute some functions concurrently to reduce total runtime possibly at the expense of higher memory usage.  
+You can use Python ThreadPoolExecutor to execute functions concurrently to reduce total runtime possibly at the expense of higher memory usage.  
 
 {% include eof.md %}

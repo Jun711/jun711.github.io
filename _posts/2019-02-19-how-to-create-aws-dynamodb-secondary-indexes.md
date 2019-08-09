@@ -268,7 +268,7 @@ $ aws dynamodb create-table \
 
 ## Note  
 ### Projected Attributes
-For projected attributes property, there are three types: 'ALL', 'KEYS_ONLY' and 'INCLUDE'. 
+For projected attributes property, there are three options: 'ALL', 'KEYS_ONLY' and 'INCLUDE'. 
 
 Choose `KEYS_ONLY` if you only need base table and index's partition and sort key values.  
 
