@@ -120,6 +120,8 @@ $ which sam
 </code></pre>  
 
 #### 2.2 Install Latest SAM using Homebrew
+Note that `brew tap` and `brew install` work on MacOS too.  
+
 <pre class='code'>
 <code>
 # Add brew tap
@@ -176,6 +178,24 @@ Commands:
             Application Repository.
   local     Run your Serverless application locally for...
   
+</code></pre>
+
+## Upgrade AWS SAM CLI
+When there is a new version of AWS SAM CLI, you can run `brew upgrade` to upgrade to newer version of AWS SAM CLI.    
+
+<pre class='code'>
+<code>
+$ brew upgrade aws-sam-cli
+
+</code></pre>
+
+If you already have the latest version of aws-sam-cli(the latest was 0.19.0 when this was written), you will see the following message:
+
+<pre class='code'>
+<code>
+$ brew upgrade aws-sam-cli
+Error: aws/tap/aws-sam-cli 0.19.0 already installed
+
 </code></pre>
 
 ## Summary
