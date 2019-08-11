@@ -29,9 +29,11 @@ Thus, there is a need for another table or data structure that are stored with d
 ## Global(GSI) vs Local Secondary Indexes(LSI)
 AWS DynamoDB supports two types of indexes: Global Secondary Index (GSI) and Local Secondary Index (LSI).  
 
-`Global secondary index` is an index that have a partition key and an optional sort key that are different from base table's primary key. It is deemed "global" because queries on the index can access the data across different partitions of the base table. It can viewed as a different table that contains attributes based on the base table.  
+`Global secondary index` is an index that have a partition key and an optional sort key that are different from base table's primary key. It is deemed "global" because queries on the index can access the data across different partitions of the base table. It can viewed as a different table with different indexing and contains attributes based on the base table.  
 
-`Local secondary index` is an index that must have the same partition key but a different sort key from the base table. It is considered "local" because every partition of a local secondary index is bounded by the same partition key value of the base table. 
+`Local secondary index` is an index that must have the same partition key but a different sort key from the base table. It is considered "local" because every partition of a local secondary index is bounded by the same partition key value of the base table. It enables data query with different sorting order of the specified sort key attribute.  
+
+Local secondary index allows Query operation to retrieve several items that have the same partition key value but different sort key values AND one item with a specific partition key value and a sort key value.
 
 ## Important Difference between GSI and LSI
 
@@ -53,7 +55,7 @@ AWS DynamoDB supports two types of indexes: Global Secondary Index (GSI) and Loc
 
 2. Global Secondary Indexes are sparse indexes as only items in the base table that are the specified attributes appear in the index.  
 
-## Which One Should I Use?
+## Secondary Index Examples
 Check out the following GSI and LSI examples to get an idea of when to use which. 
 
 ### GSI Example
@@ -69,16 +71,35 @@ With this base table key schema, it can answer queries to retrieve data for a uu
 
 To be able to get all data for a user efficiently, you can use a global secondary index that has `UserId` as its primary key (partition key). Using this index, you can do a query to retrieve all data for a user.  
 
-### LSI Example 
-Consider this table that uses composite keys: `Uuid` as partition key, `UserId` as sort key and other attributes: GroupId and Data. 
+### LSI Example
+Local Secondary Index enables different sorting order of the same list of items as LSI items uses the same partition key as base table but a different sort key. Consider this table that uses composite keys: `UserId` as partition key, `ArticleName` as sort key and other attributes: DateCreated and Data. 
 
 <pre class='code'>
 <code>
-| Uuid(Partition Key) | UserId(Sort Key) | GroupId | Data |
+| UserId(Partition Key) | ArticleName(Sort Key) | DateCreated | Content
 </code>
 </pre>
 
-With this base table key schema, it can answer queries to retrieve data for a uuid and a specific user. However, to retrieve this item for a specific group id, it would have to do a scan query and check each item for a matching group id. This can be a use case where there is a user role and a group admin role where the group admin can retrieve a user submitted item.   
+With this base table key schema, it can answer queries to retrieve all the article sorted by names for a specific user(query by UserId). However, to retrieve all the articles associated with a user sorted by date created, you would have to retrieve all the articles first and sort them. 
+
+With a local secondary index that has `UserId` as its partition key and `DateCreated` as its sort key, you can retrieve a user's articles sorted by date created.  
+
+<pre class='code'>
+<code>
+| UserId(Partition Key) | DateCreated(Sort Key) | ArticleName | Content |
+</code>
+</pre>
+
+<!-- ### LSI Example 2 
+Consider this table that uses composite keys: `Uuid` as partition key, `UserId` as sort key and other attributes: GroupId, Version and Data. 
+
+<pre class='code'>
+<code>
+| Uuid(Partition Key) | UserId(Sort Key) | GroupId | Version | Data |
+</code>
+</pre>
+
+With this base table key schema, it can answer queries to retrieve data for an articleId for a specific user (and also a list of users who are associated with this article). However, to retrieve this item for a specific group id, it would have to do a scan query and check each item for a matching group id. This can be a use case where there is a user role and a group admin role where the group admin can retrieve a user submitted item.   
 
 To enable a group admin to retrieve an item efficiently, you can use a local secondary index that has `Uuid` as its partition key and `GroupId` as its sort key. Using this index, you can do a query to retrieve the data for the item that has a specific uuid and group id.   
 
@@ -86,12 +107,15 @@ To enable a group admin to retrieve an item efficiently, you can use a local sec
 <code>
 | Uuid(Partition Key) | GroupId(Sort Key) | UserId | Data |
 </code>
-</pre>
+</pre> -->
 
-## Summary
+## Summary - Which One Should I Use?
+Which AWS DynamoDB secondary index should you use? 
+
 In short, use DynamoDB Global Secondary Index when you need to support querying non-primary key attribute of a table.   
 
-And, use DynamodB Local Secondary index when you need to support querying the items that can be identified using different composite keys. 
+And, use DynamodB Local Secondary index when you need to support querying items with different sorting order of attributes.   
+<!-- and accessing items that can be identified using the same partition key value but different sort key value.  -->
 
 Check out [How To Create AWS DDB Secondary Indexes article](https://jun711.github.io/aws/how-to-create-aws-dynamodb-secondary-indexes/){:target="view_window"} to learn how to create secondary indexes.  
 

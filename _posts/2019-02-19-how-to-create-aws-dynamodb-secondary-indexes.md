@@ -7,25 +7,29 @@ date: 2019-02-19 20:00:00 -0800
 categories: AWS
 tags:
   - Amazon DynamoDB
-  - Python
+  - AWS CLI
+  - AWS CloudFormation
 ---
-Learn how to create a DynamoDB(DDB) secondary index.
+Learn how to create DynamoDB(DDB) Global and Local Secondary Indexes(GSI and LSI).
 
 ## Why Secondary Indexes
 AWS DynamoDB secondary indexes can be used to reduce cost and improve data access efficiency. This is because querying an index by primary key is faster than scanning the whole table to look for an item that has matching attributes.  
 
-## Steps to Create a Global Secondary Index
-Follow the steps below to create a Global Secondary Index(GSI) using AWS console or AWS DynamoDB CLI.  
+## Difference between GSI and LSI  
+You can check out this [AWS DynamoDB GSI vs LSI article](https://jun711.github.io/aws/aws-dynamodb-global-and-local-secondary-indexes-comparison/){:target="view_window"} to read about difference between Global Secondary Index(GSI) and Local Secondary Index(LSI).  
+
+## How to Create a Global Secondary Index
+Follow the steps below to create a Global Secondary Index(GSI) using AWS console, AWS CLI or YAML via CloudFormation .  
 
 ### AWS DynamoDB Console   
-You can create a GSI on AWS DynamoDB Console. Note that you can create a Global Secondary Index during and after DDB table creation.  
+You can create a GSI on AWS DynamoDB Console. Note that you can create a GSI during and after DDB table creation.
 
-#### 1. Open DynamoDB Console
+**1. Open DynamoDB Console**  
 Go to AWS DynamoDB console and open up your DynamoDB table.  
 
 ![AWS DyanamoDB Table](/assets/images/2019-02-19-how-to-create-aws-dynamodb-secondary-indexes/aws-dynamodb-table.png)
 
-#### 2. Create GSI
+**2. Create GSI**  
 After clicking on `Create Index` button, you will see the following popup to configure an index.  
 
 ![AWS DyanamoDB Table Create Index Popup](/assets/images/2019-02-19-how-to-create-aws-dynamodb-secondary-indexes/aws-dynamodb-create-index.png)
@@ -42,9 +46,11 @@ Created GSIs will be listed on Indexes tab. Note that Indexes tab UI is not resp
 
 ![AWS DyanamoDB Table Global Secondary Index(GSI)](/assets/images/2019-02-19-how-to-create-aws-dynamodb-secondary-indexes/aws-dynamodb-global-secondary-index.png)
 
-### AWS DynamoDB CLI
-You can create a Global Secondary Index at the same time you create a DDB table using `create-table` command.   
-You can also use AWS DynamoDB `update-table` command to create a Global Secondary Index after creating a DDB table.   
+### AWS CLI
+You can create a Global Secondary Index(GSI) at the same time you create a DDB table using `create-table` command.   
+You can also use AWS DynamoDB `update-table` command to create a GSI after creating a DDB table.   
+
+You can specify multiple GSIs when you create using 'create-table' or 'update-table' command.  
 
 Note:  
 1) For Projection property, there are three types: `ALL`, `KEYS_ONLY` and `INCLUDE`.  For `INCLUDE` option, you specify the attributes to include using NonKeyAttributes key.   
@@ -59,51 +65,55 @@ You may not want to project all of your attributes as DynamoDB charges based on 
 
 2) For billing-mode, you can choose `PROVISIONED` or `PAY_PER_REQUEST`.  
 
-#### create-table command
+**create-table command**  
 <pre class='code'>
 <code>
 aws dynamodb create-table \
-  --table-name Items-Table \
+  --table-name User-Table \
   --attribute-definitions '[
-    {
-      "AttributeName": "Uuid",
-      "AttributeType": "S"
-    },
     {
       "AttributeName": "UserId",
       "AttributeType": "S"
     },
     {
-      "AttributeName": "Data",
+      "AttributeName": "GroupId",
       "AttributeType": "S"
     },
     {
-      "AttributeName": "TTL",
+      "AttributeName": "DateJoined",
+      "AttributeType": "S"
+    },
+    {
+      "AttributeName": "ArticleId",
       "AttributeType": "N"
     }
   ]' \
   --key-schema '[
     {
-      "AttributeName": "Uuid",
+      "AttributeName": "UserId",
       "KeyType": "HASH"
     },
     {
-      "AttributeName": "UserId",
+      "AttributeName": "GroupId",
       "KeyType": "RANGE"
     }
   ]' \
   --global-secondary-indexes '[
     {
-      "IndexName": "Users-Table",
+      "IndexName": "Group-Table",
       "KeySchema": [
         {
-          "AttributeName": "UserId",
+          "AttributeName": "GroupId",
           "KeyType": "HASH"
+        },
+        {
+          "AttributeName": "UserId",
+          "KeyType": "RANGE"
         }
       ],
       "Projection": {
         "ProjectionType": "INCLUDE",
-        "NonKeyAttributes": ["Uuid", "Data"]
+        "NonKeyAttributes": ["DateJoined", "ArticleId"]
       }
     }
   ]' \
@@ -111,32 +121,32 @@ aws dynamodb create-table \
 
 </code></pre>
 
-#### update-table command
+**update-table command**  
 <pre class='code'>
 <code>
 $ aws dynamodb update-table \
-  --table-name Items-Table \
+  --table-name User-Table \
   --attribute-definitions '[
     {
-      "AttributeName": "UserId",
+      "AttributeName": "GroupId",
       "AttributeType": "S"
     },
     {
-      "AttributeName": "Uuid",
+      "AttributeName": "UserId",
       "AttributeType": "S"
     }
   ]' \
   --global-secondary-index-updates '[
     {
       "Create": {
-        "IndexName": "Users-Table",
+        "IndexName": "Group-Table",
         "KeySchema": [
           {
-            "AttributeName": "UserId",
+            "AttributeName": "GroupId",
             "KeyType": "HASH"
           },
           {
-            "AttributeName": "Uuid",
+            "AttributeName": "UserId",
             "KeyType": "RANGE"
           }
         ],
@@ -152,28 +162,66 @@ $ aws dynamodb update-table \
   ]'
 </code></pre>
 
-## Steps to Create a Local Secondary Index
-Follow the steps below to create a Local Secondary Index(LCI) using AWS console or AWS DynamoDB CLI. Note that a Local Secondary Index can only be created during DynamoDB table creation.  
+### YAML via CloudFormation 
+You can declare a table with Global Secondary Indexes(GSI) using AWS::DynamoDB::Table resource. Note that you can specify multiple GSIs.
+
+<pre class='code'>
+<code>
+MessagesDynamoDBTable:
+  Type: AWS::DynamoDB::Table
+  Properties:
+    TableName: User-Table
+    AttributeDefinitions:
+      - AttributeName: UserId
+        AttributeType: S
+      - AttributeName: GroupId
+        AttributeType: S
+      - AttributeName: DateJoined
+        AttributeType: S
+      - AttributeName: ArticleId
+        AttributeType: N
+    KeySchema:
+      - AttributeName: UserId
+        KeyType: HASH
+      - AttributeName: GroupId
+        KeyType: RANGE
+    GlobalSecondaryIndexes:
+      - IndexName: Group-Table
+        KeySchema:
+          - AttributeName: GroupId
+            KeyType: HASH
+          - AttributeName: UserId
+            KeyType: RANGE
+        Projection:
+          ProjectionType: KEYS_ONLY
+    ProvisionedThroughput:
+      ReadCapacityUnits: 1
+      WriteCapacityUnits: 1
+
+</code></pre>
+
+## How to Create a Local Secondary Index
+Check out different ways to create a Local Secondary Index(LCI) using AWS console, AWS CLI or YAML via AWS CloudFormation. Note that a LSI can only be created during DynamoDB table creation.  
 
 ### AWS DynamoDB Console   
 You can create a LSI on AWS DynamoDB Console.  
 
-#### 1. Open DynamoDB Console
+**1. Open DynamoDB Console**  
 Go to AWS DynamoDB console and click on `Create table` button to create a DDB table.   
 
 ![AWS DyanamoDB Table Index Partition Key Types](/assets/images/2019-02-19-how-to-create-aws-dynamodb-secondary-indexes/aws-dynamodb-create-table.png)
 
-#### 2. Create Table
+**2. Create Table**  
 After clicking on `Create table` button, you will see the following form to create a DDB table. Fill out the form `Partition key` item before proceeding as it is needed to create a LSI.  
 
 ![AWS DyanamoDB Table Index Partition Key Types](/assets/images/2019-02-19-how-to-create-aws-dynamodb-secondary-indexes/aws-dynamodb-create-table-with-default-settings.png)
 
-#### 3. Uncheck Use default settings  
+**3. Uncheck Use default settings**   
 Uncheck `Use default settings` check box to enable creation of a secondary index.  
 
 ![AWS DyanamoDB Table Index Partition Key Types](/assets/images/2019-02-19-how-to-create-aws-dynamodb-secondary-indexes/aws-dynamodb-create-table-form.png)
 
-#### 4. Create LSI
+**4. Create LSI**  
 Click on `+ Add index` to open up Secondary Index Creation popup form.  
 
 ![AWS DyanamoDB Table Index Partition Key Types](/assets/images/2019-02-19-how-to-create-aws-dynamodb-secondary-indexes/aws-dynamodb-create-local-secondary-index.png)
@@ -192,8 +240,8 @@ DynamoDB allows `All`, `Keys only` and `Include` projected options. Note that `I
 
 ![AWS DyanamoDB Table Index Projected Attributes Options](/assets/images/2019-02-19-how-to-create-aws-dynamodb-secondary-indexes/aws-dynamodb-LSI-projected-attributes-options.png)
 
-### AWS DynamoDB CLI
-You can specify a Local Secondary Index when you create your table using `create-table` command.  
+### AWS CLI
+You can specify a Local Secondary Index(LSI) when you create your table using `create-table` command. Note that you can specify multiple LSIs.   
 
 Note:  
 1) For Projection property, there are three types: `ALL`, `KEYS_ONLY` and `INCLUDE`. For `INCLUDE` option, you specify the attributes to include using NonKeyAttributes key. 
@@ -211,49 +259,49 @@ With LSI, DDB will fetch unspecified attributes automatically with extra through
 
 2) For billing-mode, you can choose `PROVISIONED` or `PAY_PER_REQUEST`.  
 
-#### create-table command  
+**create-table command**   
 <pre class='code'>
 <code>
 $ aws dynamodb create-table \
-  --table-name User-Items-Table \
+  --table-name User-Articles-Table \
   --attribute-definitions '[
-    {
-      "AttributeName": "Uuid",
-      "AttributeType": "S"
-    },
     {
       "AttributeName": "UserId",
       "AttributeType": "S"
     },
     {
-      "AttributeName": "GroupId",
+      "AttributeName": "ArticleName",
       "AttributeType": "S"
     },
     {
-      "AttributeName": "Data",
+      "AttributeName": "DateCreated",
+      "AttributeType": "S"
+    },
+    {
+      "AttributeName": "Content",
       "AttributeType": "S"
     }
   ]' \
   --key-schema '[
     {
-      "AttributeName": "Uuid",
+      "AttributeName": "UserId",
       "KeyType": "HASH"
     },
     {
-      "AttributeName": "UserId",
+      "AttributeName": "ArticleName",
       "KeyType": "RANGE"
     }
   ]' \
   --local-secondary-indexes '[
     {
-      "IndexName": "Group-Items-Table",
+      "IndexName": "Users-DateArticleCreated-Table",
       "KeySchema": [
         {
-          "AttributeName": "Uuid",
+          "AttributeName": "UserId",
           "KeyType": "HASH"
         },
         {
-          "AttributeName": "GroupId",
+          "AttributeName": "DateCreated",
           "KeyType": "RANGE"
         }
       ],
@@ -266,8 +314,49 @@ $ aws dynamodb create-table \
 
 </code></pre>
 
+### YAML via CloudFormation 
+You can declare a table with Local Secondary Indexes(LSI) using AWS::DynamoDB::Table resource. Note that you can specify multiple LSIs.    
+
+<pre class='code'>
+<code>
+MessagesDynamoDBTable:
+  Type: AWS::DynamoDB::Table
+  Properties:
+    TableName: User-Articles-Table
+    BillingMode: PAY_PER_REQUEST
+    AttributeDefinitions:
+      - AttributeName: UserId
+        AttributeType: S
+      - AttributeName: ArticleName
+        AttributeType: S
+      - AttributeName: DateCreated
+        AttributeType: S
+      - AttributeName: Content
+        AttributeType: S
+    KeySchema:
+      - AttributeName: UserId
+        KeyType: HASH
+      - AttributeName: ArticleName
+        KeyType: RANGE
+    LocalSecondaryIndexes:
+      - IndexName: Users-DateArticleCreated-Table
+        KeySchema:
+          - AttributeName: UserId
+            KeyType: HASH
+          - AttributeName: DateCreated
+            KeyType: RANGE
+        Projection:
+          ProjectionType: INCLUDE
+          NonKeyAttributes: 
+            - ArticleName
+    
+</code></pre>
+
 ## Note  
-### Projected Attributes
+**1. Multiple Secondary Indexes**  
+With AWS CLI and YAML, you can create multiple global and local secondary indexes via the same operation.  
+
+**2. Projected Attributes**  
 For projected attributes property, there are three options: 'ALL', 'KEYS_ONLY' and 'INCLUDE'. 
 
 Choose `KEYS_ONLY` if you only need base table and index's partition and sort key values.  
@@ -278,10 +367,7 @@ DynamoDB charges based on the amount of data indexed so you may not want to proj
 
 For Local Secondary Indexes, DDB fetches unspecified attributes automatically with extra throughput cost and latency.  
 
-### Difference
-You can check out this [AWS DynamoDB GSI vs LSI article](https://jun711.github.io/aws/aws-dynamodb-global-and-local-secondary-indexes-comparison/){:target="view_window"} to read about difference between Global Secondary Index and Local Secondary Index.  
-
 ## Summary
-Consider your query requirements carefully and create necessary DynamoDB secondary indexes to improve query performance and reduce costs.  
+Consider your query requirements carefully and create necessary DynamoDB secondary indexes to improve query performance and minimize costs.  
 
 {% include eof.md %}
