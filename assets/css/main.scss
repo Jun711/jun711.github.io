@@ -137,3 +137,14 @@ pre.code {
     }
 }
 
+/* Progress Bar CSS */
+.progress {
+    background: linear-gradient(to right, #00adb5 var(--scroll), transparent 0);
+    background-repeat: no-repeat;
+    position: fixed;
+    overflow: hidden;
+    width: 100%;
+    height: 3px;
+    z-index: 1;
+}
+/* Progress Bar CSS End */
