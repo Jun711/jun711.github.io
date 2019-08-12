@@ -1,7 +1,7 @@
 ---
 layout: single
 header:
-  teaser: /assets/images/teasers/amazon-s3-simple-storage-service.jpeg
+  teaser: /assets/images/teasers/amazon-s3.jpg
 title: "Handle Amazon S3 Download No Access-Control-Allow-Origin Header(CORS) Error"
 date: 2019-08-04 20:00:00 -0800
 categories: AWS

@@ -1,7 +1,7 @@
 ---
 layout: single
 header:
-  teaser: /assets/images/teasers/amazon-s3-simple-storage-service.jpeg
+  teaser: /assets/images/teasers/amazon-s3.jpg
 title: "Download From Amazon Simple Storage Service(S3) Private Buckets Directly Using Presigned URLs"
 date: 2019-08-06 20:00:00 -0800
 categories: AWS
