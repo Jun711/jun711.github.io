@@ -76,7 +76,7 @@ Local Secondary Index enables different sorting order of the same list of items 
 
 <pre class='code'>
 <code>
-| UserId(Partition Key) | ArticleName(Sort Key) | DateCreated | Content
+| UserId(Partition Key) | ArticleName(Sort Key) | DateCreated | Content |
 </code>
 </pre>
 
