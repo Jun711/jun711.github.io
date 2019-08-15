@@ -62,7 +62,7 @@ Template.yml on Cloud9 IDE.
 After that, run the following Git commands to create a new git branch for production.  
 ```bash
 git add template.yml; 
-git commit -m '[yaml] update'; 
+git commit -m 'update function name'; 
 git push
 git checkout -b prod; 
 git push -u origin prod
@@ -75,15 +75,19 @@ Click on `Edit` button edit pipeline.
 
 ![CodePipeline Console](/assets/images/2019-06-15-aws-serverless-cd-ci-using-codepipeline-and-codestar/codestar-codepipeline-setup-5-default-codepipeline.png)
 
-Click `Edit stage` on GenerateChangeSet and edit button to edit pipeline GenerateChangeSet action.  
+Click `Edit stage` on GenerateChangeSet and edit button to edit pipeline 'GenerateChangeSet' action.  
 
 ![CodePipeline Edit GenerateChangeSet](/assets/images/2019-06-15-aws-serverless-cd-ci-using-codepipeline-and-codestar/codestar-codepipeline-setup-6-edit-generateChangeSet.png)
 
-Scroll to advanced section and add `"Stage": "Dev"` to parameter JSON object.  
+Scroll to advanced section, click the arrow icon to the left of Advanced subtitle and an input field for parameter overrides will show up. Add `"Stage": "Dev"` to parameter JSON object.   
 
 ![CodePipeline GenerateChangeSet Parameter JSON object](/assets/images/2019-06-15-aws-serverless-cd-ci-using-codepipeline-and-codestar/codestar-codepipeline-setup-7-add-stage-param.png)
 
 After that, click `Done` to close action menu and `Save` button on top to save changes.
+
+You would see the following warning popup saying that changes saved cannot be undone when you save pipeline changes for the first time.  
+
+![CodePipeline GenerateChangeSet Parameter JSON object](/assets/images/2019-06-15-aws-serverless-cd-ci-using-codepipeline-and-codestar/codestar-codepipeline-setup-7-5-save-pipeline-changes-the-first-time.png)
 
 ### 4. Clone Pipeline
 Now, development pipeline is ready. You can clone this pipeline to create a production pipeline.
@@ -94,22 +98,24 @@ Click `Clone pipeline` button to open up clone pipeline menu.
 Do the following to create a production pipeline.
 1. Change pipeline name to something that makes sense. I usually add the word `prod` to inform colleagues that this is the prod pipeline.
 
-2. Choose `new service role` to create a new service role for your production pipeline.
-3. Choose custom location for Artifact store and search for your project name. Based on typeahead suggestion, select the same location as default pipeline.
+2. Choose `new service role` to create a new service role for your production pipeline.  
+
+3. Choose custom location for Artifact store and search for your project name in `Bucket` field. Based on typeahead suggestion, select the same S3 bucket location as the default pipeline.  
+
 4. Click `clone` to start cloning pipeline.
 
 ### 5. Configure Prod Pipeline
 After production pipeline is created, configure it to make it build from prod branch.
 
-Click `Edit` on top to switch to pipeline-edit mode. Then, click `Edit stage` in 'Edit:Source' stage. Next, click edit button (inside red circle in the picture below) to modify ApplicationSource action.   
+Click `Edit` on top to switch to pipeline edit mode. Then, click `Edit stage` in 'Edit:Source' stage. Next, click edit button (inside red circle in the picture below) to modify ApplicationSource action.   
 
 ![CodePipeline Edit Application Source](/assets/images/2019-06-15-aws-serverless-cd-ci-using-codepipeline-and-codestar/codestar-codepipeline-setup-9-edit-prod-pipeline.png)
 
-On the 'Edit action' menu, look for 'Branch name' and change source branch to prod (it was created in step 2) to make pipeline build from prod branch.      
+On the 'Edit action' menu, look for 'Branch name' and change source branch to prod (it was created in step 2) to make pipeline build from prod branch. Click `Done` to complete the change.  
 
 ![CodePipeline Application Source](/assets/images/2019-06-15-aws-serverless-cd-ci-using-codepipeline-and-codestar/codestar-codepipeline-setup-10-change-application-git-source-prod.png)
 
-Edit Deploy stage to modify GenerateChangeSet and ExecuteChangeSet actions.
+Then, edit Deploy stage to modify GenerateChangeSet and ExecuteChangeSet actions.
 
 ![CodePipeline GenerateChangeSet and ExecuteChangeSet Actions](/assets/images/2019-06-15-aws-serverless-cd-ci-using-codepipeline-and-codestar/codestar-codepipeline-setup-11-edit-prod-pipeline-GenerateChangeSet-and-ExecuteChangeSet-actions.png)
 
@@ -117,11 +123,12 @@ On GenerateChangeSet 'Edit action' menu, look for 'Change set name', it is somew
 
 Copy 'Change set name' value as you will need to paste it back later. As of June 2019, its value is `pipeline-changeset`.  
 
-Look for 'Stack name' and change its value to create a new stack. I usually add the word `prod` to label it as prod stack. Then, paste the copied value in 'Change set name' field.  
+Look for 'Stack name' and change its value to create a new stack. I usually add the word `prod` to label it as prod stack. When you do that, 'Change set name' field is reset. Thus, paste the copied value in 'Change set name' field.  
 
 ![CodePipeline GenerateChangeSet Stack](/assets/images/2019-06-15-aws-serverless-cd-ci-using-codepipeline-and-codestar/codestar-codepipeline-setup-13-change-stack-name-to-include-prod.png)
 
-Scroll to advanced section and add `"Stage": "Prod"` to parameter JSON object.   
+Scroll to advanced section and change `"Stage": "Dev"` key-value to `"Stage": "Prod"` parameter overrides input field.    
+
 ![CodePipeline GenerateChangeSet Parameter JSON object](/assets/images/2019-06-15-aws-serverless-cd-ci-using-codepipeline-and-codestar/codestar-codepipeline-setup-14-change-generateChangeSet-param-stage-to-prod.png)
 
 After modifying GenerateChangeSet action, do the same as editing stack name step above for ExecuteChangeSet action.  
@@ -129,11 +136,12 @@ After modifying GenerateChangeSet action, do the same as editing stack name step
 On ExecuteChangeSet 'Edit action' menu, look for 'Change set name', it is somewhere in the middle of the menu.  
 Copy 'Change set name' value as you will need to paste it back later.  
 
-Look for 'Stack name' and change its value to create a new stack. After that, paste the copied value in 'Change set name' field.  
+Look for 'Stack name' and change its value to create a new stack. Use the same stack name as GenerateChangeSet action. After that, paste the copied value in 'Change set name' field.  
 
 ![CodePipeline ExecuteChangeSet Stack](/assets/images/2019-06-15-aws-serverless-cd-ci-using-codepipeline-and-codestar/codestar-codepipeline-setup-13-change-stack-name-to-include-prod.png)
 
-Save pipeline. When you save, you may see `pipeline does not exist error` like this, it is ok. A new stack will be created.
+Click Done and Save button to save pipeline changes.   
+When you save, you may see `stack does not exist error` like this, it is ok. A new stack will be created.
 
 ![CodePipeline Stack Non-existent error](/assets/images/2019-06-15-aws-serverless-cd-ci-using-codepipeline-and-codestar/codestar-codepipeline-setup-15-ignore-clone-pipeline-error-and-save.png)
 
@@ -185,6 +193,7 @@ DdbTable:
 {:start="3"}
 3. If you don't mind creating two tables, one for development stage and one for production stage. You can append stage value to their names like this: `TableName: !Sub 'ddb-${Stage}-table'`.  
 4. Note that changing DDB name in yaml will cause DDB table to be rebuilt and thus all data will be lost. Be careful if you are adding a production pipeline to an in production yaml.  
-5. If there is any build error, it is probably caused by IAM permission issue. Check status reasons and error messages on CodeBuild console. You may need to add permission to your project CloudFormation role. 
+5. If there is any build error, it is probably caused by IAM permission issue. Check status reasons and error messages on CodeBuild and CloudFormation console. You may need to add permission for your project CloudFormation role.   
+You can check out [Add IAM:CreateRole to CloudFormation Role article](https://jun711.github.io/aws/authorizing-aws-cloudformation-to-perform-iam-create-role/){:target="view_window"} to see how to add permission for your roles.  
 
 {% include eof.md %}
