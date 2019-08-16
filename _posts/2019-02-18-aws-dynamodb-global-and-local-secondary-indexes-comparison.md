@@ -22,9 +22,9 @@ SELECT * FROM Users
 WHERE email='username@email.com';
 ```
 
-It possible to do so using DynamoDB scan operation. However, scan operations access every item in a table which is slower than query operations that access items at specific indices. Imagine, you have look for a book in a library by going through possibly all the books in the library versus you know which shelf the book is at. 
+It is possible to obtain the same query result using DynamoDB scan operation. However, scan operations access every item in a table which is slower than query operations that access items at specific indices. Imagine, you have to look for a book in a library by going through possibly all the books in the library versus you know which shelf the book is at. 
 
-Thus, there is a need for another table or data structure that are stored with different primary key and maps a subset of attributes from this base table. This other table is called a secondary index and is managed by AWS DynamoDB. When items are added, modified, or deleted in the base table, associated secondary indexes will be updated to reflect the changes.  
+Thus, there is a need for another table or data structure that stores data with different primary key and maps a subset of attributes from this base table. This other table is called a secondary index and is managed by AWS DynamoDB. When items are added, modified, or deleted in the base table, associated secondary indexes will be updated to reflect the changes.  
 
 ## Global(GSI) vs Local Secondary Indexes(LSI)
 AWS DynamoDB supports two types of indexes: Global Secondary Index (GSI) and Local Secondary Index (LSI).  
@@ -51,9 +51,9 @@ Local secondary index allows Query operation to retrieve several items that have
 {: .three-col-table table }
 
 ### Note
-1. Since Global Secondary Indexes have their own throughput consumption, to minimize cost, I suggest project only attributes that are needed. You can always create a new index that projects more attributes and replace the existing one when use case changes.
+1. Since Global Secondary Indexes have their own throughput consumption, to minimize cost, I suggest project only attributes that are needed. You can always create a new index that projects more attributes and replace the existing one when your use case changes.
 
-2. Global Secondary Indexes are sparse indexes as only items in the base table that are the specified attributes appear in the index.  
+2. Global Secondary Indexes are sparse indexes as only specified attributes of the items in the base table appear in the index.  
 
 ## Secondary Index Examples
 Check out the following GSI and LSI examples to get an idea of when to use which. 
@@ -72,11 +72,11 @@ With this base table key schema, it can answer queries to retrieve data for a uu
 To be able to get all data for a user efficiently, you can use a global secondary index that has `UserId` as its primary key (partition key). Using this index, you can do a query to retrieve all data for a user.  
 
 ### LSI Example
-Local Secondary Index enables different sorting order of the same list of items as LSI items uses the same partition key as base table but a different sort key. Consider this table that uses composite keys: `UserId` as partition key, `ArticleName` as sort key and other attributes: DateCreated and Data. 
+Local Secondary Index enables different sorting order of the same list of items as LSI uses the same partition key as base table but different sort key. Consider this table that uses composite keys: `UserId` as partition key, `ArticleName` as sort key and other attributes: DateCreated and Data. 
 
 <pre class='code'>
 <code>
-| UserId(Partition Key) | ArticleName(Sort Key) | DateCreated | Content |
+| UserId(Partition Key) | ArticleName(Sort Key) | DateCreated | Data |
 </code>
 </pre>
 
@@ -86,7 +86,7 @@ With a local secondary index that has `UserId` as its partition key and `DateCre
 
 <pre class='code'>
 <code>
-| UserId(Partition Key) | DateCreated(Sort Key) | ArticleName | Content |
+| UserId(Partition Key) | DateCreated(Sort Key) | ArticleName | Data |
 </code>
 </pre>
 
@@ -110,8 +110,6 @@ To enable a group admin to retrieve an item efficiently, you can use a local sec
 </pre> -->
 
 ## Summary - Which One Should I Use?
-Which AWS DynamoDB secondary index should you use? 
-
 In short, use DynamoDB Global Secondary Index when you need to support querying non-primary key attribute of a table.   
 
 And, use DynamodB Local Secondary index when you need to support querying items with different sorting order of attributes.   
