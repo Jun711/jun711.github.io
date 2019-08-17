@@ -34,14 +34,16 @@ You can modify your EB environment capacity on AWS console. Using time-based sca
 4. On Modify Capacity menu, scroll down to **Time-based scaling**.
 ![AWS Elastic Beanstalk Time-based Scaling](/assets/images/aws-elastic-beanstalk-console-time-based-scaling-2019-03-09.png)
 
-5. Choose **Local** for time zone unless you know your UTC time. 
-6. Select **Add scheduled action** and you will see a menu like this:   
+5. Select **Add scheduled action** and you will see a menu like this:   
 ![AWS Elastic Beanstalk Scheduled Action](/assets/images/aws-elastic-beanstalk-console-scheduled-action-2019-03-09.png)
 
-7. Set the Min and Max of instances and Desired capacity to 0.  
-8. Set the start time about 5 minutes from your current time so that the pause action has enough time to execute. 
-9. Click Add and then **Apply**.
-10. Your environment will be updated and will be set to 0 instance.  
+6. Set the Min and Max of instances and Desired capacity to 0.  
+7. Set the start time about 5 minutes from your current UTC time so that the pause action has enough time to execute.   
+Note that it is in UTC(Coordinated Universal Time).
+8. Click `Add` to close the action menu.
+9. Choose `Local` for time zone and check if scaling is scheduled at the right time. 
+10. Click `Apply` so that this added scheduled action will take effect.  
+11. Your environment will be updated and will be set to 0 instance.  
 Environment Overview page will look like this:
 ![AWS Elastic Beanstalk Environment Paused State](/assets/images/aws-elastic-beanstalk-environment-paused-instance-zero-2019-03-09.png)
 
