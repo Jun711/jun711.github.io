@@ -68,7 +68,7 @@ WARNING: If you choose yes, the environment and your application will be tempora
 ## Summary
 With this, you can pause and continue running your Elastic Beanstalk environment whenever you want.
 
-Check out [Elastic Beanstalk Worker Auto Scaling By Queue Size](https://jun711.github.io/aws/aws-elastic-beanstalk-worker-auto-scale-by-queue-size/){:target="view_window"} if you would like to know how to pause an Elastic Beanstalk environment instance temporarily.  
+Check out [Elastic Beanstalk Worker Auto Scaling By Queue Size](https://jun711.github.io/aws/aws-elastic-beanstalk-worker-auto-scale-by-queue-size/){:target="view_window"} if you would like to know how to auto scale an Elastic Beanstalk worker by queue size.  
 
 {% include eof.md %}
 
