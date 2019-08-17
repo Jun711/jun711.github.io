@@ -60,8 +60,10 @@ This would work if you are using a load-balancing environment. If you are a usin
 
 ```
 eb scale 0 myEnvName
-The environment is currently a single-instance. Do you want to change to a load-balancing environment?
-WARNING: If you choose yes, the environment and your application will be temporarily unavailable.
+The environment is currently a single-instance. 
+Do you want to change to a load-balancing environment?
+WARNING: If you choose yes, the environment and 
+your application will be temporarily unavailable.
 (Y/n): 
 ```
 
