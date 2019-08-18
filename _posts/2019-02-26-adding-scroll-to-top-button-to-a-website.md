@@ -22,7 +22,7 @@ For examples:
 <h3><i class="icon-arrow-up"></i></h3>
 ```
 
-2) You can include this code inside footer.html. For the theme that I am using, I had to create a folder called footer that contains custom.html inside _includes folder to add code to footer.
+2) You can include this above html inside footer.html. For the Jekyll stheme that I am using, I had to create a folder called footer inside `_includes` folder and add code to a html file named `custom.html`.  
 ```html
 <!-- start custom footer snippets -->
 <button id='scroll-to-top'>up</button>
@@ -48,7 +48,10 @@ For examples:
 document.getElementById('scroll-to-top').style.display = 'block';
 document.getElementById('scroll-to-top').style.opacity = 1;
 document.getElementById('scroll-to-top').style.transform = 'translateY(-30%)'
-```
+```    
+  
+3) For Jekyll sites, you can include this CSS in `main.scss` file inside `assets/css` folder.    
+
 ## Examples
 ### Example 1 - HTML + CSS
 This 'BACK TO TOP' button is provided by Minimal Mistakes theme. It is made using HTML and CSS only. It works because href points to another element that has id page-title. Once this element is clicked, it will scroll to the top of the page-title element. This scrolls smoothly on Safari too. 
@@ -111,6 +114,13 @@ $(document).ready(function () {
 ```
 
 You can play around using this [scroll-to-top button using Jquery codepen](https://codepen.io/jun711/pen/rRVeMe){:target="_blank"}.
+
+For Jekyll sites, put the JavaScript code above inside a JavaScript file and include this JS file in the head_scripts section of your `_config.yml` file.    
+
+```yaml
+head_scripts:
+  - /assets/js/my-javscript.js
+```
 
 ### Example 3 - Vanilla JS + HTML + CSS
 For HTML and CSS, you can use the button that is made earlier.
@@ -182,6 +192,13 @@ e.addEventListener("click", scrollToTop, false);
 
 You can play around using this [scroll-to-top button using vanilla JavaScript codepen](https://codepen.io/jun711/pen/WmQGrE){:target="_blank"}.
 
+For Jekyll sites, put the JavaScript code above inside a JavaScript file and include this JS file in the head_scripts section of your `_config.yml` file.   
+
+```yaml
+head_scripts:
+  - /assets/js/my-javscript.js
+```
+
 ## Improvement
 You can use an easing timing function and window.requestAnimationFrame to scroll with easing.
 
@@ -207,5 +224,9 @@ function scrollTopSmooth( initY, duration = 300, timingName = "linear" ) {
   window.requestAnimationFrame( step );  
 }
 ```
+## Summary
+By having a scroll-to-top button, a navigation menu and breadcrumb, readers can navigate around your website conveniently.  
+
+To make your website more user friendly, check out [How to Add A Scroll To Top Button to A Website article](https://jun711.github.io/web/adding-scroll-to-top-button-to-a-website/){:target="view_window"}. 
 
 {% include eof.md %}
