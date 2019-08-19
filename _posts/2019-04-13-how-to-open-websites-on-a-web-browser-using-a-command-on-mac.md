@@ -1,7 +1,7 @@
 ---
 layout: single
 header:
-  teaser: /assets/images/teasers/browsers.png
+  teaser: /assets/images/teasers/browsers.jpg
 title: "How to Open Websites On A Web Browser Using A Command on Mac (OSX)?"
 date: 2019-04-13 12:00:00 -0800
 categories: Productivity
