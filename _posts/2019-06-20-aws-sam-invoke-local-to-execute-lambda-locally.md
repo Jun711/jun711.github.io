@@ -2,7 +2,7 @@
 layout: single
 header:
   teaser: /assets/images/teasers/aws-sam-squirrel-mascot.png
-title: "Invoking AWS Lambda functions locally using AWS SAM CLI"
+title: "Invoking or Executing AWS Lambda functions locally using AWS SAM CLI"
 date: 2019-06-20 20:00:00 -0800
 categories: AWS
 tags:
@@ -10,10 +10,10 @@ tags:
   - AWS Serverless Application Model(AWS SAM)
   - serverless
 ---
-Learn how to invoke AWS Lambda functions on your machine using AWS SAM CLI.
+Learn how to invoke AWS Lambda functions on your local machine using AWS SAM CLI.
 
-## Steps
-You will need to install AWS CLI, AWS SAM CLI and Docker to invoke a Lambda function locally. If you already have AWS CLI installed, you can skip to step 2.
+## Steps to Run Lambda Locally
+You will need to install AWS CLI, AWS SAM CLI and Docker to execute a Lambda function locally. If you already have AWS CLI installed, you can skip to step 2.
 
 This is to assume you have AWS CLI installed. If not, you can follow steps on [AWS CLI installation document](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html){:target="view_window"} to install AWS CLI.
 
