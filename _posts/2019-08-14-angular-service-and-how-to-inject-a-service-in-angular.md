@@ -3,7 +3,7 @@ layout: single
 header: 
   teaser: /assets/images/teasers/angular.png
 title: "Angular Service and How to Inject A Service in Angular"
-date: 2019-08-15 20:00:00 -0800
+date: 2019-08-14 20:00:00 -0800
 categories: Web
 tags: 
   - 'Angular'
