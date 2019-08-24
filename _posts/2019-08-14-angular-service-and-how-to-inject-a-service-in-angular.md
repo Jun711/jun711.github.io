@@ -76,8 +76,9 @@ export class NoteComponent {
 }
 ```  
 
-### Component constructor
+### Class Constructor
 You can inject an Angular service in a component, service, directive etc by specifying the service and its type in a component's constructor.  
+Note that injecting a service through a class constructor is, in general, tree-shakable.   
 
 ```typescript
 import { MyService } from './my.service';
@@ -85,7 +86,8 @@ import { MyService } from './my.service';
 constructor(private myService: MyService) {}
 ```
   
-**Without Factory Provider**:
+**Without Factory Provider**:  
+
 ```typescript
 import { Component } from '@angular/core';
 import { NoteService } from './note.service';
