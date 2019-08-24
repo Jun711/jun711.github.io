@@ -2,7 +2,7 @@
 layout: single
 header: 
   teaser: /assets/images/teasers/angular.png
-title: "Angular Factory Providers And Abstract Classes For More Organized Code Structure"
+title: "Angular Service Factory Providers And Abstract Classes For More Organized Code Structure"
 date: 2019-08-13 20:00:00 -0800
 categories: Web
 tags: 
@@ -10,15 +10,15 @@ tags:
   - 'Angular'
   - 'TypeScript'
 ---
-Learn how to use Angular factory providers and abstract classes to make your Angular project code more organized.   
+Learn how to use Angular service factory providers and abstract classes to make your Angular project code more organized.   
 
 ## Factory Providers
-A factory provider is a provider that can create different services depending on the conditions and information available during run time. This provider contains the methods to instantiate different types of services dynamically based on application state.  
+A factory provider is a provider that can create different services depending on the conditions and information available during application run time. This provider contains the methods to instantiate different types of services dynamically based on application state.  
 
-For example, consider `UserService` factory provider. It creates different types of users depending on login information such as different user services for a paid user and a free user. Without using a factory provider, there would be a need to use conditional expressions(if-else) to separate functionalities for paid users and free users inside UserService class.
+For example, consider `UserService` factory provider. It can create different types of users depending on login information such as different user services for a paid user and a free user. Without using a factory provider, there would be a need to use conditional expressions(if-else) to separate functionalities for paid users and free users inside UserService class.
 
 ## User Service Factory Provider
-`UserService Factory Provider` can be used to instantiate different types of `UserService` that extends `UserService` abstract class.    
+Check out `UserService Factory Provider` below. It can be used to instantiate different types of User Service that extends `UserService` abstract class.    
 
 ### User Service Abstract Class
 The code below is a UserService abstract class that imports `LoginService` and has `setUser` abstract method and `getUser` implemented method.  
@@ -84,7 +84,7 @@ class PaidUserService extends UserService {
 ```
 
 ### User Service Factory Function
-A factory function is a function that generates a suitable service based on a set of rules.  
+A factory function is a function that generates a suitable service based on run time conditions.    
 
 The following is UserService's factory function that is used to create `PaidUserService` when `SubscriptionService`'s 'isPaidUser' method returns true and `FreeUserService` otherwise.  
 
@@ -106,7 +106,7 @@ let userServiceFactory = (
 ### User Service Provider
 A service provider is a configuration object that tells Angular what factory function to call and what dependencies to inject when the specified token is called. 
 
-The following is `UserService` provider which can be included in AppModule's `NgModule` decorator provider list or in an Angular component's `Component` decorator provider list. In this case, `UserService` is the token that is being configured by using this userServiceProvider object.   
+The following is `UserService` provider which can be included in AppModule's `NgModule` decorator provider list or in an Angular component's `@Component` decorator provider list. In this case, `UserService` is the token that is being configured by using this userServiceProvider object.   
 
 - **provide** key tells Angular this provider is providing UserService which is the token that will be used in dependency injection.  
 
@@ -128,16 +128,19 @@ export let userServiceProvider = {
 };
 ```
 
-## Import Factory Provider
-You can use `UserService Factory Provider` at component level or at application root level.  
+## Configure Factory Provider
+You can include `UserService Factory Provider` at component level or at application root level.  
 
 ### Component level
-UserService Factory Provider can be used to provide UserService for a component.  
+UserService Factory Provider can be used to provide UserService for a component. You can include service factory provider definition in the providers attribute of `@Component` decorator.  
 
 `user.component.ts`:  
 ```typescript
 import { Component } from '@angular/core';
-import { userServiceProvider } from './user.service.provider';
+import { UserService } from './user.service';
+import { 
+  userServiceProvider 
+} from './user.service.provider';
 
 @Component({
   selector: 'app-user',
@@ -145,23 +148,62 @@ import { userServiceProvider } from './user.service.provider';
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss']
 })
-export class UserComponent { }
+export class UserComponent {
+  constructor(private userService: UserService) { }
+}
 ```
 
 ### Application level
-UserService Factory Provider can be included in the `@NgModule` decorator of AppModule to provide for the whole application.  
+UserService Factory Provider can also be included in the providers attribute of AppModule `@NgModule` decorator to provide for the whole application.  
 
 `app.module.ts`:  
 ```typescript
 @NgModule({
   declarations: [ AppComponent ],
   imports: [ BrowserModule ],
-  providers: [ 
-    heroServiceProvider 
-  ],
-  bootstrap: [AppComponent]
+  providers: [ heroServiceProvider ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
+```
+
+## Angular Tree-shaking
+A service is considered [tree-shakable](https://jun711.github.io/web/angular-tree-shaking/){:target="view_window"} when Angular compiler can determine whether to exclude or include a service when building bundles.  
+
+Note that the abovementioned ways to configure a service factory provider are not tree shakable. A service is tree-shakable when factory provider definition is included in `userFactory` attribute of the service's `@Injectable` decorator
+
+When service factory provider is included this way, Angular compiler are able to determine whether this service should be included in the build bundle.   
+
+```typescript
+import { Injectable } from '@angular/core';
+import { userServiceFactory } from './user.service.factory';
+import { 
+  SubscriptionService 
+} from './subscription.service';
+import { LoggingService } from './logging.service';
+import { FreeService } from './free.service';
+import { PaidService } from './paid.service';
+
+@Injectable({
+  providedIn: 'root',
+  useFactory: userServiceFactory,
+  deps: [
+    LoggingService, 
+    SubscriptionService,
+    FreeService,
+    PaidService
+  ],
+})
+abstract class UserService {
+  protected user: User;
+  constructor(protected logger: LoggingService) { }
+
+  public abstract setUser(userInfo: User): void;
+
+  public getUser(): User {
+    return this.user;
+  }
+}
 ```
 
 ## Advantages
