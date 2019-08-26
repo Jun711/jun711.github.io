@@ -53,14 +53,34 @@ document.getElementById('scroll-to-top').style.transform = 'translateY(-30%)'
 3) For Jekyll sites, you can include this CSS in `main.scss` file inside `assets/css` folder.    
 
 ## Examples
-### Example 1 - HTML + CSS
-This 'BACK TO TOP' button is provided by Minimal Mistakes theme. It is made using HTML and CSS only. It works because href points to another element that has id page-title. Once this element is clicked, it will scroll to the top of the page-title element. This scrolls smoothly on Safari too. 
+### 1 - Smooth Scroll JS + CSS id
+This 'BACK TO TOP' button provided by Minimal Mistakes theme uses a [Smooth Scroll JavaScript](https://github.com/cferdinandi/smooth-scroll){:target="view_window"} for animating scrolling to anchor links. 
+
+It works because href points to another element that has id page-title. Once this element is clicked, it will scroll to the top of the page-title element. Without using JavaScript for smooth scrolling, upon clicking the element, the page will display anchored view rather abruptly.  
 
 ![Jekyll Minimal Mistakes Theme Back To Top Button](/assets/images/jekyll-back-to-top-button-19-02-27.png)
 
+To initialize Smooth Scroll:   
+```javascript
+var scroll = new SmoothScroll('a[href*="#"]');
+```
+
+Minimal Mistakes repo initializes [Smooth Scroll with customized options](https://github.com/mmistakes/minimal-mistakes/blob/cf0c046dd231a5eb7f2d1d234740f102f2ad44c2/assets/js/_main.js#L69){:target="view_window"}.   
+
+```javascript
+var scroll = new SmoothScroll('a[href*="#"]', {
+  offset: 20,
+  speed: 400,
+  speedAsDuration: true,
+  durationMax: 500
+});
+```
+
 Its HTML is
 ```html
-<h1 id="page-title" class="page__title">Posts by Category</h1>
+<h1 id="page-title" class="page__title">
+  Posts by Category
+</h1>
 ...
 <a href="#page-title" class="back-to-top">
   {{ site.data.ui-text[site.locale].back_to_top | default: 'Back to Top' }} &uarr;
@@ -68,7 +88,7 @@ Its HTML is
 ...
 ```
 
-In case you wonder what `&uarr;` is, it is a [named HTML entity](https://www.w3.org/TR/WD-html40-970708/sgml/entities.html){:target="_blank"} that represents a Unicode arrow-up character.
+In case you wonder what `&uarr;` is, it is a [named HTML entity](https://www.w3.org/TR/WD-html40-970708/sgml/entities.html){:target="view_window"} that represents a Unicode arrow-up character.
 
 `back-to-top` css class contains the following css:
 ```
@@ -83,7 +103,7 @@ In case you wonder what `&uarr;` is, it is a [named HTML entity](https://www.w3.
 }
 ```
 
-### Example 2 - JQuery + HTML + CSS
+### 2 - JQuery + HTML + CSS
 For HTML and CSS, you can use the button that is made earlier.
 
 Use JQuery fadeIn and fadeOut functions to make scroll-to-top button display and hide. And, attach JQuery animate function with scrollTop property to make screen scroll to top.
@@ -113,7 +133,7 @@ $(document).ready(function () {
 });
 ```
 
-You can play around using this [scroll-to-top button using Jquery codepen](https://codepen.io/jun711/pen/rRVeMe){:target="_blank"}.
+You can play around using this [scroll-to-top button using Jquery codepen](https://codepen.io/jun711/pen/rRVeMe){:target="view_window"}.
 
 For Jekyll sites, put the JavaScript code above inside a JavaScript file and include this JS file in the head_scripts section of your `_config.yml` file.    
 
@@ -122,7 +142,7 @@ head_scripts:
   - /assets/js/my-javscript.js
 ```
 
-### Example 3 - Vanilla JS + HTML + CSS
+### 3 - Vanilla JS + HTML + CSS
 For HTML and CSS, you can use the button that is made earlier.
 
 Use `"scrollBehavior" in document.documentElement.style` to check if a browser support to decide whether you can use smooth scrolling. 
@@ -190,7 +210,7 @@ var e = document.getElementById("scroll-to-top");
 e.addEventListener("click", scrollToTop, false);
 ```
 
-You can play around using this [scroll-to-top button using vanilla JavaScript codepen](https://codepen.io/jun711/pen/WmQGrE){:target="_blank"}.
+You can play around using this [scroll-to-top button using vanilla JavaScript codepen](https://codepen.io/jun711/pen/WmQGrE){:target="view_window"}.
 
 For Jekyll sites, put the JavaScript code above inside a JavaScript file and include this JS file in the head_scripts section of your `_config.yml` file.   
 
@@ -202,9 +222,9 @@ head_scripts:
 ## Improvement
 You can use an easing timing function and window.requestAnimationFrame to scroll with easing.
 
-You can check out this [github gist](https://gist.github.com/gre/1650294){:target="_blank"} for easing functions.
+You can check out this [github gist](https://gist.github.com/gre/1650294){:target="view_window"} for easing functions.
 
-This is a smooth scrolling function written using easing timing function and window.requestAnimationFrame shared on this [scroll top with a transition effect](https://codepen.io/dsheiko/pen/XZEgXW?editors=1010){:target="_blank"} codepen. Check it out to learn more.
+This is a smooth scrolling function written using easing timing function and window.requestAnimationFrame shared on this [scroll top with a transition effect](https://codepen.io/dsheiko/pen/XZEgXW?editors=1010){:target="view_window"} codepen. Check it out to learn more.
 ```javascript
 function scrollTopSmooth( initY, duration = 300, timingName = "linear" ) {  
   const timingFunc = TIMINGFUNC_MAP[ timingName ];
