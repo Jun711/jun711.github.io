@@ -2,7 +2,7 @@
 layout: single
 header:
   teaser: /assets/images/amazon-dynamodb-wiki-screenshot-2019-02-12.png
-title: "How to set time-to-live attribute for Amazon DynamoDB entries?"
+title: "How To Set Time-To-Live(TTL) Attribute For Amazon DynamoDB entries?"
 date: 2019-02-20 20:00:00 -0800
 categories: AWS
 tags:
