@@ -8,6 +8,7 @@ categories: AWS
 tags:
   - Amazon DynamoDB
   - Python
+  - serverless
 ---
 Learn how to make Amazon DynamoDB(DDB) tables clean up itself.
 
@@ -139,12 +140,15 @@ def get_from_ddb(key):
 ```python
 expiryTimestamp = int(time.time() + 24*3600*7)
 ExpressionAttributeValues = {
-    'ttl': {
-    'N': str(expiryTimestamp) 
+  'ttl': {   
+       'N': str(expiryTimestamp) 
   }
 }
 ```
 
 With this, you can have your DynamoDB tables remove irrelevant entries automatically.
+
+## Further Reading
+To learn how to verify if TTL is configured properly for your DynamoDB tables, check out [How to Verify TTL Configuration For Amazon DynamoDB Table article](https://jun711.github.io/aws/how-to-verify-if-amazon-dynamodb-ttl-is-set-correctly/){:target="view_window"}.
 
 {% include eof.md %}
