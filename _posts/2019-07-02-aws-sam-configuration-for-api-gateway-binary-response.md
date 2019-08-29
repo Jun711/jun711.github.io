@@ -11,7 +11,7 @@ tags:
   - AWS Serverless Application Model(AWS SAM)
   - serverless
 ---
-Learn how to configure AWS SAM to enable Binary Response such as `audio/mpeg`, `application/zip`, `image/jpeg` etc from AWS Api Gateway with Lambda proxy integration. 
+Learn how to configure AWS SAM to enable Binary Response such as `audio/wav`, `application/zip`, `image/jpeg`, `image/png` etc from AWS Api Gateway with Lambda proxy integration. 
 
 ## Steps
 In this walkthrough, I will use `application/zip` for example.
@@ -172,7 +172,9 @@ this.apiCall()
 ```
 
 ## Conclusion
-Setting `x-amazon-apigateway-binary-media-types` property or SAM `BinaryMediaTypes` enables binary response from API Gateway.  
+Setting `x-amazon-apigateway-binary-media-types` property or SAM `BinaryMediaTypes` enables binary response from API Gateway. 
+
+Check out [AWS Amplify API, Blob Response Type and Error Handling article](https://jun711.github.io/aws/aws-amplify-handle-blob-response-and-json-error-response/) to learn how to send requests for binary response on frontend using AWS Amplify.   
 
 {% include eof.md %}
 
