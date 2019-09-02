@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>HomePage</title>
+</head>
+
+<body>
+  <h1>Homepage</h1>
+  <a href="https://jun711.github.io" target="homepageIframe">Jun's blog</a>
+  <br />
+  <a href="webpage1.html" target="homepageIframe">Webpage 1</a>
+  <br /><br />
+  <p>Webpages embedded in an Iframe below</p>
+  <iframe 
+    title="Homepage Iframes"
+    id="myIframe" 
+    name="homepageIframe" 
+    src="webpage1.html" 
+    width="350" height="350">
+    <p>iframes are not supported by this browser.</p>
+  </iframe>
+  <style>
+    iframe {
+      border: 1px solid black;
+    }
+  </style>
+  <script>
+    const myIframe = document.getElementById("myIframe");
+
+    function accessIframe() {
+      const iframeWindow = myIframe.contentWindow;
+      const iframeDocument = myIframe.contentDocument;
+
+      console.log('iframeWindow: ', iframeWindow);
+      console.log('iframeDocument: ', iframeWindow.document);
+      console.log('iframeDocument: ', iframeDocument);
+    }
+
+    accessIframe();
+  </script>
+</body>
+
+</html>
