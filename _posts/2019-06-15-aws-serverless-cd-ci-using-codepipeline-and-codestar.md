@@ -31,6 +31,8 @@ Quoted from AWS CodePipeline page:
 > AWS CodePipeline is a fully managed continuous delivery service that helps you automate your release pipelines for fast and reliable application and infrastructure updates.
 
 ## CI/CD Configuration Steps
+If there is any build error when following the steps, it is probably caused by IAM permission issue. Check status reasons and error messages on CodeBuild and CloudFormation console. You may need to add permission for your project CloudFormation role.   
+
 ### 1. Create a CodeStar Project
 Create a CodeStar web service project. You can choose Cloud9 as your IDE and CodeCommit as your code repository. It may take a few minutes for AWS to create and configure resources for your CodeStar project.
 
@@ -59,7 +61,8 @@ Template.yml on Cloud9 IDE.
 ![Cloud9 Edit yaml](/assets/images/2019-06-15-aws-serverless-cd-ci-using-codepipeline-and-codestar/codestar-codepipeline-setup-2-edit-yaml-functionName.png)
 
 
-After that, run the following Git commands to create a new git branch for production.  
+After that, run the following Git commands to push function name change and create a new Git branch for production. If you are on Cloud9 IDE, you can click `+` button and select `New Terminal` to open a terminal tab to run the following commands.    
+
 ```bash
 git add template.yml; 
 git commit -m 'update function name'; 
@@ -69,7 +72,7 @@ git push -u origin prod
 ```
 
 ### 3. Edit Dev Pipeline
-On the left panel of a CodeStar project console, you can see a Pipeline button. Clicking on it will open up the default pipeline created for your project. At this step, you will modify the default pipeline to make it a development pipeline.
+Open CodeStar project console. On the left panel of a CodeStar project console, you can see a Pipeline button. Clicking on it will open up the default pipeline created for your project. At this step, you will modify the default pipeline to make it a development pipeline.
 
 Click on `Edit` button edit pipeline.   
 
@@ -100,7 +103,7 @@ Do the following to create a production pipeline.
 
 2. Choose `new service role` to create a new service role for your production pipeline.  
 
-3. Choose custom location for Artifact store and search for your project name in `Bucket` field. Based on typeahead suggestion, select the same S3 bucket location as the default pipeline.  
+3. Choose `custom location` for Artifact store and search for your project name in `Bucket` field. Based on typeahead suggestion, select the same S3 bucket location as the default pipeline.  
 
 4. Click `clone` to start cloning pipeline.
 
@@ -140,7 +143,7 @@ Look for 'Stack name' and change its value to create a new stack. Use the same s
 
 ![CodePipeline ExecuteChangeSet Stack](/assets/images/2019-06-15-aws-serverless-cd-ci-using-codepipeline-and-codestar/codestar-codepipeline-setup-13-change-stack-name-to-include-prod.png)
 
-Click Done and Save button to save pipeline changes.   
+Click Done and Save buttons to save pipeline changes.   
 When you save, you may see `stack does not exist error` like this, it is ok. A new stack will be created.
 
 ![CodePipeline Stack Non-existent error](/assets/images/2019-06-15-aws-serverless-cd-ci-using-codepipeline-and-codestar/codestar-codepipeline-setup-15-ignore-clone-pipeline-error-and-save.png)
