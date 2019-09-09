@@ -64,10 +64,10 @@ Template.yml on Cloud9 IDE.
 After that, run the following Git commands to push function name change and create a new Git branch for production. If you are on Cloud9 IDE, you can click `+` button and select `New Terminal` to open a terminal tab to run the following commands.    
 
 ```bash
-git add template.yml; 
-git commit -m 'update function name'; 
+git add template.yml
+git commit -m 'update function name'
 git push
-git checkout -b prod; 
+git checkout -b prod
 git push -u origin prod
 ```
 
