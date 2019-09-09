@@ -59,7 +59,7 @@ res = dynamodbClient.update_item(
             }
         },
         ExpressionAttributeNames = {
-            '#u': 'usage'
+            '#usage': 'usage'
         },
         ExpressionAttributeValues = {
             ':increase': {
