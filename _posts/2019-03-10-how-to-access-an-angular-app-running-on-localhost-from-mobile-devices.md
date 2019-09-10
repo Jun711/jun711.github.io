@@ -34,7 +34,7 @@ The steps are different if you have a different Windows OS.
 ### 2. Ng serve with host flag
 When you serve your Angular app using [Angular CLI ng serve](https://angular.io/cli/serve){:target="_blank"} command with host flag, you specify the host to listen on.  
 
-`ng serve --port your-local-ip-address`
+`ng serve --host your-local-ip-address`
 
 ### 3. Connect your phone to the same WiFi
 It is important that you connect your mobile devices to the same WiFi local network.
