@@ -40,7 +40,7 @@ Content-type: application/json
 ## What is PCM  
 After reading about [WAV](https://en.wikipedia.org/wiki/WAV){:target="view_window"} and [PCM](https://en.wikipedia.org/wiki/Pulse-code_modulation){:target="view_window"} Wikipedia pages, I realized that WAV audio format is raw audio data in PCM format plus audio file headers.    
 
-Quoted from Wiki, definition of PCM as following:
+Quoted from Wiki, definition of PCM is as following:
 > Pulse-code modulation (PCM) is a method used to digitally represent sampled analog signals. It is the standard form of digital audio in computers, compact discs, digital telephony and other digital audio applications.  
 
 ## Python Wave Module
@@ -50,25 +50,25 @@ Following are 'setparams' and 'writeframes' method signature and note according 
 
 **setparams**  
 <pre class='code'><code>
-Wave_write.setparams(tuple)
+Wave_write.setparams(tuple)   
 
-The tuple should be 
-(nchannels, sampwidth, framerate, nframes, comptype, compname), 
-with values valid for the set*() methods. Sets all parameters.
+The tuple should be   
+(nchannels, sampwidth, framerate, nframes, comptype, compname),   
+with values valid for the set*() methods. Sets all parameters.   
 
 </code></pre>
 
 **writeframes**  
 <pre class='code'><code>
-Wave_write.writeframes(data)
+Wave_write.writeframes(data)   
 
-Write audio frames and make sure nframes is correct. 
-It will raise an error if the output stream is not seekable 
-and the total number of frames that have been written after 
-data has been written does not match the previously set value for nframes.
+Write audio frames and make sure nframes is correct.   
+It will raise an error if the output stream is not seekable   
+and the total number of frames that have been written after   
+data has been written does not match the previously set value for nframes.  
 
-writeframes() calculates the number of frames in the data and 
-set nframes accordingly before writing the frame data. 
+writeframes() calculates the number of frames in the data and   
+set nframes accordingly before writing the frame data.   
 
 </code></pre>
 

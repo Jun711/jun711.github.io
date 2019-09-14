@@ -54,8 +54,8 @@ sudo python get-pip.py
 
 Output:   
 <pre class='code'><code>
-Password:
-DEPRECATION: Python 2.7 will reach the end of its life on January 1st, 2020.  
+Password:  
+DEPRECATION: Python 2.7 will reach the end of its life on January 1st, 2020.    
 Please upgrade your Python as Python 2.7 won't be maintained after 
 that date. A future version of pip will drop support for Python 2.7.   
 More details about Python 2 support in pip,   
