@@ -114,7 +114,7 @@ Click `Edit` on top to switch to pipeline edit mode. Then, click `Edit stage` in
 
 ![CodePipeline Edit Application Source](/assets/images/2019-06-15-aws-serverless-cd-ci-using-codepipeline-and-codestar/codestar-codepipeline-setup-9-edit-prod-pipeline.png)
 
-On the 'Edit action' menu, look for 'Branch name' and change source branch to prod (it was created in step 2) to make pipeline build from prod branch. Click `Done` to complete the change.  
+On the 'Edit action' menu, look for 'Branch name' and change source branch to `prod` (it was created in step 2) to make pipeline build from prod branch. Click `Done` to complete the change.  
 
 ![CodePipeline Application Source](/assets/images/2019-06-15-aws-serverless-cd-ci-using-codepipeline-and-codestar/codestar-codepipeline-setup-10-change-application-git-source-prod.png)
 

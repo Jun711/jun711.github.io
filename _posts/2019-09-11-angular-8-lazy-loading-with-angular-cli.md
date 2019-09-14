@@ -13,7 +13,7 @@ tags:
 Learn how to create a lazy loading path with Angular 8 apps using Angular CLI.    
 
 ## Lazy Loading
-Lazy loading literally means loading your Angular app in a lazy manner. In other words, it means your Angular app doesn't load a specific JavaScript bundle until it is needed. This is effective in keeping your app's main bundle size small and thus also minimizing initial app load time.   
+Lazy loading literally means loading your Angular app in a lazy manner. In other words, it means your Angular app doesn't load a specific feature (JavaScript, HTML and CSS) bundle until it is needed. This is effective in keeping your app's main bundle size small and thus also minimizing initial app load time / first paint time.     
 
 In this guide, I will walk you through steps to configure and create a lazy loading path by using Angular CLI.  
 
