@@ -45,4 +45,7 @@ For example: `192.168.1.114:4200`
 
 With this, you can load your app in development on your mobile devices. 
 
+## Futher Read
+Please check out my other [Angular posts](https://jun711.github.io/tags/#angular) if you are interested in learning more about Angular.  
+
 {% include eof.md %}
