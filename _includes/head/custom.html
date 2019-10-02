@@ -6,3 +6,12 @@
 <!-- Progress Bar -->
 <div id="progress-bar"></div>
 <!-- End of Progress Bar -->
+{% if page.autoads and jekyll.environment == "production" %}
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-6805425741453021",
+          enable_page_level_ads: true
+     });
+</script>
+{% endif %}
