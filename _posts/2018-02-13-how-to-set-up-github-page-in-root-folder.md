@@ -1,0 +1,12 @@
+---
+layout: single
+title: 'How to set up a GitHub Page in the root folder?'
+date: '2018-02-13T19:58:00.000-08:00'
+categories: Web
+tags:
+- GitHub
+- Web
+---
+Learn how to set up a Github page in the root folder
+
+If you want your GitHub page to be displayed without a directory / folder name, you can name your portfolio name as <u>username.github.io</u>. By doing so, when a visitor goes to <u>https://username.github.io</u>, the visitor will see the content of your GitHub page without having to append any repo name in the URL path:&nbsp;<u>https://username.github.io/<strike>portfolio</strike></u><br /><br />This is probably due to the GitHub page routing that directs portfolio named the same as the GitHub username to the root index page.<br /><div class="separator" style="clear: both; text-align: center;"><br /></div><div class="separator" style="clear: both; text-align: left;">If you don't have a portfolio that is named as <u>username.github.io</u>, you will see the 404 page below if you navigate to&nbsp;<u>https://username.github.io</u>.&nbsp;</div><div class="separator" style="clear: both; text-align: left;"><br /></div><div class="separator" style="clear: both; text-align: left;">I think this is a good way to display your portfolio.</div><div class="separator" style="clear: both; text-align: left;"><br /></div><div class="separator" style="clear: both; text-align: left;">* username as in your GitHub username</div><table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;"><tbody><tr><td style="text-align: center;"><a href="https://1.bp.blogspot.com/-BVFHBSjAA2I/WoObEfFPudI/AAAAAAAAAaU/VyhzwbbY1NoQ9aSAte0nUGJSfbSWy69MwCLcBGAs/s1600/github-404.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img alt="404 Not Found" border="0" data-original-height="425" data-original-width="695" height="390" src="https://1.bp.blogspot.com/-BVFHBSjAA2I/WoObEfFPudI/AAAAAAAAAaU/VyhzwbbY1NoQ9aSAte0nUGJSfbSWy69MwCLcBGAs/s640/github-404.png" title="GitHub Page 404 Not Found" width="640" /></a></td></tr><tr><td class="tr-caption" style="text-align: center;">GitHub Page 404</td></tr></tbody></table><br />Thanks for reading!<br /><br /><a href="http://www.language-diary.com/p/jun711-language-diary.html" target="_blank">Jun</a><br /><br />

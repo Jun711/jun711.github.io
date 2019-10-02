@@ -1,0 +1,11 @@
+---
+layout: single
+title: "React Native - Render Static Images at Intended Size on Development and Release
+  Build"
+date: '2018-01-23T23:00:00.001-08:00'
+categories: Web
+tags:
+- React Native
+---
+
+I noticed that on React Native Maps, my custom image map markers were rendered a few times bigger in a release build compared to while in development exactly like this <a href="https://github.com/react-community/react-native-maps/issues/1422" target="_blank">Custom marker icons are too big on release issue</a> on React Native Maps's repo.<br /><h3>Solution:</h3>To make sure that the markers render at the intended dimensions, you have to provide images at 2x and 3x times your original image size. Let's say the image(logo.png) that you want to use is at 20px * 20px (width * height). You will have to provide 40px * 40px and 60px * 60px and name them as logo@2x.png and logo@3x.png. These suffixes will let native platform know which images to use for different screen densities.<br /><br />Refer to <a href="https://facebook.github.io/react-native/docs/images.html" target="_blank">React Native Image document&nbsp;</a>for more information.<br /><div class="separator" style="clear: both; text-align: center;"></div><br /><table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;"><tbody><tr><td style="text-align: center;"><a href="http://3.bp.blogspot.com/-WCMVDBa083k/WsxoCNFcGLI/AAAAAAAABGQ/rbUvSuTgijMUpHUwGTphUnAuhxOHgIVlACK4BGAYYCw/s1600/react-native-image-size.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img alt="React Native Image document" border="0" height="282" src="https://3.bp.blogspot.com/-WCMVDBa083k/WsxoCNFcGLI/AAAAAAAABGQ/rbUvSuTgijMUpHUwGTphUnAuhxOHgIVlACK4BGAYYCw/s640/react-native-image-size.png" title="React Native Image document" width="640" /></a></td></tr><tr><td class="tr-caption" style="text-align: center;">React Native Image document</td></tr></tbody></table><br />Thanks for reading!<br /><br /><a href="http://www.language-diary.com/p/jun711-language-diary.html" target="_blank">Jun</a>
