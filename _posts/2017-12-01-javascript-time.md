@@ -6,7 +6,6 @@ author: Jun
 categories: Web
 tags:
 - JavaScript
-modified_time: '2018-04-10T00:32:54.853-07:00'
 thumbnail: https://4.bp.blogspot.com/-VtRlo86Zd6A/Wr3ZNkBujEI/AAAAAAAAAxU/yKy4h4Fph0INtwivGO_DJ-mfiZtMPAxYACK4BGAYYCw/s72-c/date-mdn.png
 ---
 
