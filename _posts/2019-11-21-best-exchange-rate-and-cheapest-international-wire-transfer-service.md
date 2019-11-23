@@ -7,7 +7,8 @@ date: 2019-11-21 20:00:00 -0800
 categories: Review
 tags: 
   - 'Wire Transfer'
-  - 'TransferWise'
+  - 'Forex'
+  - 'Currency Exchange'
 ---
 
 Ever feel that it costs quite a bit to send money overseas. Check out this service and save money on your next international wire transfer.
@@ -33,12 +34,11 @@ That means, if we want to buy USD from TD Bank, we pay 1.3621 CAD to get 1 USD. 
 
 That means for every USD that we buy from TD Bank, TD Bank probably makes around **0.0321 CAD**(1.3621 - 1.33) for every USD that we buy using CAD. In other words, when we buy 1000 USD, TD Bank probably makes 32.1 CAD.
 
-On the other hand, TransferWise facilitates international currency exchange using mid market rate which is the rate we see on Google, XE and Yahoo Finance.   
+On the other hand, [TransferWise](http://bit.ly/jun-transferwise){:target="_blank"}facilitates international currency exchange using mid market rate which is the rate we see on Google, XE and Yahoo Finance.   
 Logically, then, mid market rate is then the middle rate between buying and selling prices of currency markets. To read more about [mid market rate](https://transferwise.com/gb/mid-market-rate){:target="view_window"}.
 
 ## Foreign Exchange Service
-
-According to Wikipedia, Transferwise is described as following:  
+According to Wikipedia, [TransferWise](http://bit.ly/jun-transferwise){:target="_blank"} is described as following:  
 
 > TransferWise is a British online money transfer service founded in January 2011 by Estonians Kristo Käärmann and Taavet Hinrikus and is based in London. The company supports more than 750 currency routes across the world including GBP, USD, EUR, AUD and CAD, and provides multi-currency accounts.
 
@@ -47,13 +47,15 @@ This diagram summarizes the steps to use do internation wire transfer using Tran
 
 ![TransferWise Steps for Internation Wire Transfer](/assets/images/2019-11-21-best-exchange-rate-and-cheapest-international-wire-transfer-service/transferwise-steps-for-internationational-wire-transfer.png)
 
+If you would like to get discount for your first international wire transfer with [TransferWise](http://bit.ly/jun-transferwise){:target="_blank"}, feel free to message me.  
+
 ### 1 Sign up for an account
 ![TransferWise Homepage](/assets/images/2019-11-21-best-exchange-rate-and-cheapest-international-wire-transfer-service/transferwise-homepage-and-register.png)
 
 ![TransferWise Register Form](/assets/images/2019-11-21-best-exchange-rate-and-cheapest-international-wire-transfer-service/transferwise-signup-form.png)
 
 ### 2 Onboarding Survey
-There is any onboarding survey that you have to answer to tell TransferWise how you gonna use it.  
+There is any onboarding survey that you have to answer to tell [TransferWise](http://bit.ly/jun-transferwise){:target="_blank"} how you gonna use it.  
 
 ![TransferWise Usage Survey](/assets/images/2019-11-21-best-exchange-rate-and-cheapest-international-wire-transfer-service/transferwise-usage-survey.png)
 
@@ -61,9 +63,7 @@ There is any onboarding survey that you have to answer to tell TransferWise how 
 Next, you will fill out some information regarding your money transfer through a series of steps `(Amount - You - Recipient - Review - Pay)`. Follow the explanation and diagrams below for a walkthrough.  
 
 **Amount**  
-Specify the currency and amount that you want to transfer. The exchange rate is guaranteed if your money arrives at TransferWise account within the next set period of time (e.g. 96 hours in this case).  
-
-![TransferWise Transfer Flow - Amount to Send](/assets/images/2019-11-21-best-exchange-rate-and-cheapest-international-wire-transfer-service/transferwise-transfer-walkthrough-amount-to-send.png)
+Specify the currency and amount that you want to transfer. The exchange rate is guaranteed if your money arrives at [TransferWise](http://bit.ly/jun-transferwise){:target="_blank"}account within the next set period of time (e.g. 96 hours in my case).   
 
 ![TransferWise Transfer Flow - Amount to Send](/assets/images/2019-11-21-best-exchange-rate-and-cheapest-international-wire-transfer-service/transferwise-transfer-flow-amount-to-send.png)
 
@@ -97,7 +97,7 @@ Next, you need to specify the reason for transferring money.
 
 ![TransferWise Transfer Flow - Review Details of Transfer](/assets/images/2019-11-21-best-exchange-rate-and-cheapest-international-wire-transfer-service/transferwise-transfer-flow-review-details-of-transfer.png)
 
-How do you transfer money / pay TransferWise? At the pay stage, TransferWise lists a few payment methods and price for each payment methods is different. Based on two uses, I noticed that `online bill pay`, `domestic wire transfer` and `direct debit` are probably the cheapest options.  
+How do you transfer money / pay TransferWise? At the pay stage, [TransferWise](http://bit.ly/jun-transferwise){:target="_blank"} lists a few payment methods and price for each payment methods is different. Based on two uses, I noticed that `online bill pay`, `domestic wire transfer` and `direct debit` are probably the cheapest options.  
 
 ![TransferWise Transfer Flow - Pay TransferWise](/assets/images/2019-11-21-best-exchange-rate-and-cheapest-international-wire-transfer-service/transferwise-transfer-flow-pay-transferwise.png)
 
@@ -107,7 +107,7 @@ How do you transfer money / pay TransferWise? At the pay stage, TransferWise lis
 I find that direct debit and online bill pay are quite easy to set up. I believe it also depends on countries. Thus, choose the method that is most convenient for you.  
 
 ### 1 Direct Debit
-You can set up direct debit via the TransferWise console by selecting direct debit and continue to payment.  
+You can set up direct debit via the [TransferWise](http://bit.ly/jun-transferwise){:target="_blank"} console by selecting direct debit and continue to payment.  
 ![TransferWise Transfer Flow - Direct Debit Bank List](/assets/images/2019-11-21-best-exchange-rate-and-cheapest-international-wire-transfer-service/transferwise-transfer-flow-direct-debit-bank-list.png)
 
 ![TransferWise Transfer Flow - Direct Debit Bank List](/assets/images/2019-11-21-best-exchange-rate-and-cheapest-international-wire-transfer-service/transferwise-transfer-flow-direct-debit-bank-list-2.png)
@@ -124,7 +124,7 @@ The second option that I recommend is online bill pay. However, it seems to be w
 
 ![TransferWise Transfer Flow - Online Bill Pay Bank List](/assets/images/2019-11-21-best-exchange-rate-and-cheapest-international-wire-transfer-service/transferwise-transfer-flow-online-bill-pay-using-tangerine-bank.png)
 
-However, on TransferWise help page, it lists the steps needed to add TransferWise as a payee. I will list here for your convenience. 
+However, on [TransferWise](http://bit.ly/jun-transferwise){:target="_blank"} help page, it lists the steps needed to add TransferWise as a payee. I will list here for your convenience. 
 
 The usual steps for online bill pay are as following:  
 
@@ -140,18 +140,18 @@ Account number- Your TransferWise membership number (Starts with an uppercase P,
 {:start="5"}
 5. Select Verify Payee
 
-After you've added TransferWise as a bill payee with your bank, you can use this payment method again with ease.
+After you've added [TransferWise](http://bit.ly/jun-transferwise){:target="_blank"} as a bill payee with your bank, you can use this payment method again with ease.
 
-For example, this is how my bill payment menu looks like after I added TransferWise as my bill payee with my Tangerine account.
+For example, this is how my bill payment menu looks like after I added [TransferWise](http://bit.ly/jun-transferwise){:target="_blank"} as my bill payee with my Tangerine account.
 
 ![Pay TransferWise Using Tangerine Bill Pay](/assets/images/2019-11-21-best-exchange-rate-and-cheapest-international-wire-transfer-service/tangerine-bill-payment-menu-after-adding-transferwise-as-bill-payee.png)
 
 ## Compare with Bank Exchange Rates
 To verify that you will pay less fee or transfer money overseas at a better exchange rate, you can compare TransferWise rate with the **foreign currency buying rate (TT - Telegraphic Transfer)** that you can find on your bank website.
 
-## Free Money
-If you would like to get discount for your first international wire transfer with TransferWise, feel free to contact me.  
+## Freebie
+Feel free to contact me if you would like to get discount for your first international wire transfer with [TransferWise](http://bit.ly/jun-transferwise){:target="_blank"}. 
 
-If you are interested in using Tangerine Bank(online bank), you can use my Tangerine Orange Key: 47618967S1 to sign up for an account. Both of us would be able to get $50 once Tangerine is able to verify your account. Thank you.   
+If you are interested in using [Tangerine](https://www.tangerine.ca/en){:target="view_window"} Bank(online bank), you can use my Tangerine Orange Key: 47618967S1 to sign up for an account. Both of us would be able to get $50 once Tangerine is able to verify your account. Thank you.   
 
 {% include eof.md %}
