@@ -124,6 +124,9 @@ author:
     - label: "Support Jun"
       icon: "fas fa-mug-hot"
       url: &coffeeUrl "https://www.buymeacoffee.com/jun711"
+    - label: "Amazon US"
+      icon: "fab fa-amazon"
+      url: &amznUrl "http://bit.ly/jun-amzn"
 
 # Site Footer
 footer:
