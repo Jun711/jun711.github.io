@@ -143,6 +143,9 @@ footer:
     - label: "Support Jun"
       icon: "fas fa-mug-hot"
       url: *coffeeUrl
+    - label: "Amazon US"
+      icon: "fab fa-amazon"
+      url: *amznUrl
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       # url: *githubUrl
