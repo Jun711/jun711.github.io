@@ -4,7 +4,7 @@ header:
   teaser: /assets/images/teasers/python.png
 title: "How to Install Python 3 on Mac OS"
 date: 2019-08-22 20:00:00 -0800
-categories: DevOp
+categories: DevOps
 tags:
   - Python
 ---

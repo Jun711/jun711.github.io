@@ -4,7 +4,7 @@ header:
   teaser: /assets/images/teasers/python.png
 title: "How to Install Pip on Mac OSX"
 date: 2019-08-23 20:00:00 -0800
-categories: DevOp
+categories: DevOps
 tags:
   - Python
   - AWS CLI
@@ -99,6 +99,6 @@ rm get-pip.py
 ## Note
 1) To install a package using pip, you can run `pip install package_name` or `pip3 install package_name`.    
 
-2) Note that Python 2.7 will not be maintained starting January 1st, 2020. Check out [How to Install Python 3 on Mac OSX](https://jun711.github.io/devop/how-to-install-python3-on-mac-os/){:target="view_window"} article to install Python 3.   
+2) Note that Python 2.7 will not be maintained starting January 1st, 2020. Check out [How to Install Python 3 on Mac OSX](https://jun711.github.io/devops/how-to-install-python3-on-mac-os/){:target="view_window"} article to install Python 3.   
 
 {% include eof.md %}

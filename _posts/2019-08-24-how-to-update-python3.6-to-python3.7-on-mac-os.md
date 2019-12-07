@@ -4,7 +4,7 @@ header:
   teaser: /assets/images/teasers/python.png
 title: "How to Update Python 3.6 to Python 3.7 on Mac OS"
 date: 2019-08-24 20:00:00 -0800
-categories: DevOp
+categories: DevOps
 tags:
   - Python
 ---
@@ -15,7 +15,7 @@ Learn how to upgrade Python 3.6 to Python 3.7 on Mac OS.
 
 ![Python Official Site](/assets/images/2019-08-22-how-to-install-python3-on-mac-os/python-official-download-site.png)
 
-2) Use the download installer to install Python 3.7. You can refer to [How to Install Python3 article](https://jun711.github.io/devop/how-to-install-python3-on-mac-os/){:target="view_window"} for more information.  
+2) Use the download installer to install Python 3.7. You can refer to [How to Install Python3 article](https://jun711.github.io/devops/how-to-install-python3-on-mac-os/){:target="view_window"} for more information.  
 
 ## Homebrew
 If you use [Homebrew](https://brew.sh/){:target="view_window"}, you can run `brew install` command to update Python to Python 3.7  
@@ -46,6 +46,6 @@ which python3.7
 </code></pre>
 
 ## Note
-You can check out [How to Install Pip article](https://jun711.github.io/devop/how-to-install-pip-on-mac-os/){:target="view_window"} to learn how to install Pip.   
+You can check out [How to Install Pip article](https://jun711.github.io/devops/how-to-install-pip-on-mac-os/){:target="view_window"} to learn how to install Pip.   
 
 {% include eof.md %}
