@@ -7,6 +7,7 @@ date: 2019-06-11 20:00:00 -0800
 categories: AWS
 tags:
   - AWS Lambda
+  - serverless
 ---
 An example of using Python multi-threading in AWS Lambda. 
 
