@@ -2,7 +2,7 @@
 layout: single
 header:
   teaser: /assets/images/teasers/aws-sam-squirrel-mascot.png
-title: "Install AWS SAM and Execute AWS Lambda functions locally using AWS SAM CLI"
+title: "Install AWS SAM CLI and Execute AWS Lambda functions locally using SAM CLI"
 date: 2019-06-20 20:00:00 -0800
 categories: AWS
 tags:
