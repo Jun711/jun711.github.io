@@ -95,11 +95,11 @@ The following is the list the folders specifed on AWS Lambda Layers document.
 **Java**
 - java/lib (classpath)
 
-**Ruby**
+**Ruby**  
 – ruby/gems/2.5.0 (GEM_PATH)
 - ruby/lib (RUBY_LIB)
 
-**Other**
+**All**  
 – bin (PATH)
 - lib (LD_LIBRARY_PATH)
 
