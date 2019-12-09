@@ -37,7 +37,7 @@ On the other hand, [TransferWise](http://bit.ly/jun-forex){:target="_blank"} fac
 Logically, then, mid market rate is then the middle rate between buying and selling prices of currency markets. To read more about [mid market rate](https://transferwise.com/gb/mid-market-rate){:target="view_window"}.
 
 ## Foreign Exchange Service
-According to Wikipedia, [TransferWise](http://bit.ly/jun-forex){:target="_blank"} is described as following:  
+According to Wikipedia, [TransferWise](http://bit.ly/jun-transferwise){:target="_blank"} is described as following:  
 
 > TransferWise is a British online money transfer service founded in January 2011 by Estonians Kristo Käärmann and Taavet Hinrikus and is based in London. The company supports more than 750 currency routes across the world including GBP, USD, EUR, AUD and CAD, and provides multi-currency accounts.
 
@@ -123,7 +123,7 @@ The second option that I recommend is online bill pay. However, it seems to be w
 
 ![TransferWise Transfer Flow - Online Bill Pay Bank List](/assets/images/2019-11-21-best-exchange-rate-and-cheapest-international-wire-transfer-service/transferwise-transfer-flow-online-bill-pay-using-tangerine-bank.png)
 
-However, on [TransferWise](http://bit.ly/jun-forex){:target="_blank"} help page, it lists the steps needed to add TransferWise as a payee. I will list here for your convenience. 
+However, on [TransferWise](http://bit.ly/jun-transferwise){:target="_blank"} help page, it lists the steps needed to add TransferWise as a payee. I will list here for your convenience. 
 
 The usual steps for online bill pay are as following:  
 
@@ -139,7 +139,7 @@ Account number- Your TransferWise membership number (Starts with an uppercase P,
 {:start="5"}
 5. Select Verify Payee
 
-After you've added [TransferWise](http://bit.ly/jun-forex){:target="_blank"} as a bill payee with your bank, you can use this payment method again with ease.
+After you've added [TransferWise](http://bit.ly/jun-transferwise){:target="_blank"} as a bill payee with your bank, you can use this payment method again with ease.
 
 For example, this is how my bill payment menu looks like after I added [TransferWise](http://bit.ly/jun-forex){:target="_blank"} as my bill payee with my Tangerine account.
 
