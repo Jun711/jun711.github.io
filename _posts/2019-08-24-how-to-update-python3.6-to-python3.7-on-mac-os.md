@@ -4,11 +4,13 @@ header:
   teaser: /assets/images/teasers/python.png
 title: "How to Update Python 3.6 to Python 3.7 on Mac OS"
 date: 2019-08-24 20:00:00 -0800
-categories: DevOps
+categories: DevOp
 tags:
   - Python
 ---
 Learn how to upgrade Python 3.6 to Python 3.7 on Mac OS.  
+
+This post has been updated on [How to Update Python 3.6 to Python 3.8 on Mac OS](https://jun711.github.io/devops/how-to-update-python3.6-to-python3.7-plus-on-mac-os/). This post will be removed end of this month.  
 
 ## Python Official Site
 1) Open up [Python official download site](https://www.python.org/downloads/){:target="view_window"}. It looks something like the image below. Press `Download Python 3.7.4` or the version you would like to download.  
