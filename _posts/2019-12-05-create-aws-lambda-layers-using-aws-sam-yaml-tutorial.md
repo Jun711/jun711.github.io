@@ -14,7 +14,7 @@ tags:
 Learn how to create a Lambda Layer using AWS SAM (Serverless Application Model) and CloudFormation in YAML to reuse code, write zero redundant code and reduce Lambda deployment size.  
 
 ## AWS Lambda Layers
-Lambda Layers can be thought as additional code added on top of a Lambda function. A Lambda Layer is a ZIP archive / file that contains code and can be imported by Lambda functions. 
+Lambda Layers can be thought of as additional code added on top of a Lambda function. A Lambda Layer is a ZIP archive / file that contains code and can be imported by Lambda functions. 
 
 In other words, you can extract and reuse common code by keeping the code in a Lambda Layer and attach it to multiple Lambda functions. 
 
