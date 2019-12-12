@@ -75,7 +75,10 @@ What the above code meas is it updates usage attribute of an item by adding usag
 
 You can read Boto 3 [update_item API](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dynamodb.html#DynamoDB.Client.update_item){:target="_blank"} API document for more information. 
 
-You can use either `SET #usage = #usage + :increase` or `ADD #usage :increase`.
+You can use either one of the following expressions:   
+  
+1 `SET #usage = #usage + :increase`   
+2 `ADD #usage :increase`   
 
 With this, you can increase a counter atomically.
 
