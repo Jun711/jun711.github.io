@@ -16,9 +16,11 @@
 </script>
 {% endif %} -->
 
-<script src="https://webreader.naturalreaders.com/nr-webreader.js"></script>
+<script src="https://webreader.naturalreaders.com/nr-webreader.js" defer></script>
 <script>
-    window['NRWebReader'] = new NRWebReader({
-        widget_id: "407ycybhos",  // DO NOT REMOVE. This is your widget ID for your WebReader
+    window.addEventListener("DOMContentLoaded", function() {
+        window['NRWebReader'] = new NRWebReader({
+            widget_id: "407ycybhos"  // DO NOT REMOVE. This is your widget ID for your WebReader
+        });
     }); 
 </script>
