@@ -323,7 +323,7 @@ function compute = (input, data) => {
 ```
 
 ## Summary
-With this, you can secure your AWS API Gateway endpoints with AWS_IAM and sign your AWS API Gateway requests with Signature Version 4. Note that it doesn't shield your APIs from all misuse but it makes it harder to misuse.
+With this, you can [secure your AWS API Gateway endpoints with AWS_IAM](https://jun711.github.io/aws/aws-api-gateway-access-control-with-iam-cognito-lambda-custom-authorizer/){:target="_blank"} and sign your AWS API Gateway requests with Signature Version 4. Note that it doesn't shield your APIs from all misuse but it makes it harder to misuse.
 
 In addition, you can also use Cognito or Lambda Authorizer (Custom Authorizer) to control access to your API Gateway endpoints. Read how to do it on my [API Gateway Access Control article](https://jun711.github.io/aws/aws-api-gateway-access-control-with-iam-cognito-lambda-custom-authorizer/){:target="_blank"}.
 
