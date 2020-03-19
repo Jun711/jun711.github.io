@@ -106,6 +106,9 @@ author:
     - label: "Website"
       icon: "fas fa-fw fa-link"
       # url: "https://your-website.com"
+    - label: "Amazon US"
+      icon: "fab fa-amazon"
+      url: &amznUrl "http://bit.ly/jun-amzn"
     - label: "Medium"
       icon: "fab fa-fw fa-medium"
       url: &mediumUrl "https://medium.com/@jun711.g"
@@ -124,9 +127,6 @@ author:
     - label: "Support Jun"
       icon: "fas fa-mug-hot"
       url: &coffeeUrl "https://www.buymeacoffee.com/jun711"
-    - label: "Amazon US"
-      icon: "fab fa-amazon"
-      url: &amznUrl "http://bit.ly/jun-amzn"
 
 # Site Footer
 footer:
