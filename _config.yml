@@ -112,6 +112,12 @@ author:
     - label: "Medium"
       icon: "fab fa-fw fa-medium"
       url: &mediumUrl "https://medium.com/@jun711.g"
+    - label: "Be a Patreon"
+      icon: "fab fa-patreon"
+      url: &patreonUrl "https://www.patreon.com/jun711?fan_landing=true"
+    - label: "Support Jun"
+      icon: "fas fa-mug-hot"
+      url: &coffeeUrl "https://www.buymeacoffee.com/jun711"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
       url: &twitterUrl "https://twitter.com/Jun711_"
@@ -124,9 +130,6 @@ author:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: # &githubUrl "https://github.com/Jun711"
-    - label: "Support Jun"
-      icon: "fas fa-mug-hot"
-      url: &coffeeUrl "https://www.buymeacoffee.com/jun711"
 
 # Site Footer
 footer:
@@ -143,6 +146,9 @@ footer:
     - label: "Support Jun"
       icon: "fas fa-mug-hot"
       url: *coffeeUrl
+    - label: "Be a Patreon"
+      icon: "fab fa-patreon"
+      url: *patreonUrl
     - label: "Amazon US"
       icon: "fab fa-amazon"
       url: *amznUrl
