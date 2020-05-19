@@ -132,7 +132,30 @@ Another way is to create an IAM role that allows `lambda:InvokeFunction` action 
 ![AWS IAM Review Role Creation](/assets/images/2019-04-20-aws-api-gateway-invoke-lambda-function-permission/aws-iam-create-role-review-role-2019-04-20.png)
 
 {:start="5"}
-5. Edit Trust Relationships so that this role trusts apigateway.amazonaws.com.
+5. Edit Trust Relationships so that this role trusts apigateway.amazonaws.com.    
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "lambda.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
+    },
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "apigateway.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+```   
+
 ![AWS IAM Create Role Trust Relationships](/assets/images/2019-04-20-aws-api-gateway-invoke-lambda-function-permission/aws-iam-create-role-trust-api-gateway-2019-04-20.png)
 
 These are all the steps needed to create a role on AWS console.
